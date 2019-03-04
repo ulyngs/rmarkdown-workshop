@@ -1,0 +1,19 @@
+---
+title: "R Markdown Workshop"
+date: "12-13 March 2019"
+author: Ulrik Lyngs
+output: 
+  html_document:
+    theme: yeti
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This repo contains slides and teaching materials for a two day R Markdown workshop taking place as part of the [Project TIER Faculty Development Workshop](https://www.projecttier.org/fellowships-and-workshops/faculty-development-workshops/#about-project-tier-faculty-development-workshops), St. Anne's College, University of Oxford, March 12-13 2019.
+
+Slides are available here:
+
+- [Day 1: Introduction to R Markdown](Day1.html)
+- [Day 2: Applications of R Markdown](Day2.html)
