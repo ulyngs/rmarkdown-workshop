@@ -1,0 +1,778 @@
+---
+title: "Hello, R Markdown!"
+subtitle: "Day 1: Introduction"
+author: "<br/> Ulrik Lyngs <br/> Department of Computer Science <br/> University of Oxford"
+date: "12 March 2019"
+output:
+  xaringan::moon_reader:
+    seal: false
+    chakra: libs/remark-latest.min.js
+    lib_dir: libs
+    nature:
+      #highlightStyle: default
+      highlightLines: true
+      countIncrementalSlides: false
+      titleSlideClass: ["middle", "center"]
+      ratio: "16:9"
+      beforeInit: ["https://platform.twitter.com/widgets.js", "libs/cols_macro.js"]
+    css: ["libs/lyngs_style.css", default, rutgers-fonts, libs/cols.css, "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap-grid.min.css", "https://use.fontawesome.com/releases/v5.7.2/css/all.css", "libs/css/academicons.min.css"]
+---
+class: title-slide
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(magick)
+library(reticulate)
+```
+
+.row[
+.col-7[
+.title[
+# Hello, R Markdown!
+]
+.subtitle[
+## Day 1: Introduction
+]
+.author[
+### Ulrik Lyngs <br> [ulriklyngs.com](https://ulriklyngs.com) <br> [<i class="fab fa-github"></i>](https://github.com/ulyngs) [<i class="fab fa-twitter"></i>](https://twitter.com/ulyngs)[<i class="ai ai-google-scholar"></i>](https://scholar.google.co.uk/citations?user=e8XDAzcAAAAJ&hl=en)
+]
+
+.affiliation[
+### Department of Computer Science <br> University of Oxford
+]
+
+]
+
+.col-5[
+
+.logo[
+```{r}
+knitr::include_graphics("figures/rmarkdown.png")
+```
+]
+]
+
+]
+
+---
+<iframe width="1300" height="600" src="https://www.youtube.com/embed/s3JldKoA0zw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+---
+# Who am I?
+
+.pull-left[
+## Personal
+- Cognitive psychologist-turned-computer scientist
+- 3rd year DPhil student, [Human Centred Computing Group](https://www.cs.ox.ac.uk/research/HCC/)
+- Researching attention and self-regulation in relation to digital device use
+]
+
+.pull-right[
+## R Markdown enthusiast
+#### Packages for paper and thesis writing with R markdown
+- ACM CHI proceedings format
+
+https://github.com/ulyngs/oxforddown
+]
+
+
+
+---
+
+# Plan
+
+.pull-left[
+### Day 1
+- R Markdown basics
+- Dynamic report writing
+]
+
+.pull-right[
+### Day 2
+- Output formats
+- Workflows, collaboration, and teaching
+- Putting it all together
+]
+
+---
+class: center, middle
+
+# R Markdown basics
+
+---
+# Wouldn't it be great if...
+
+--
+- You could keep code, results, and text in the same document?
+
+--
+- Your results and plots were automatically generated from your data, so your documents were automatically updated if your data changed?
+
+--
+- The file format of your documents was future-proof?
+
+--
+- The syntax for this was easy?
+
+---
+# Wouldn't it be great if...
+
+.pull-left[
+- You could keep code, results, and text in the same document?
+- Your results and plots were automatically generated from your data, so your documents were automatically updated if your data changed?
+- The file format of your documents was future-proof?
+- The syntax for this was easy?
+]
+
+.pull-right[
+```{r, echo=FALSE}
+knitr::include_graphics("figures/notebook-demo.png")
+```
+
+*Interactive notebook*
+
+]
+
+---
+# Wouldn't it be great if...
+
+.pull-left[
+- You could keep code, results, and text in the same document?
+- Your results and plots were automatically generated from your data, so your documents were automatically updated if your data changed?
+- The file format of your documents was future-proof?
+- The syntax for this was easy?
+]
+
+.pull-right[
+```{r, echo=FALSE}
+knitr::include_graphics("figures/plain-text.png")
+```
+*Plain text*
+]
+
+--
+.pull-right[
+```{r, echo=FALSE}
+knitr::include_graphics("figures/too-old.png")
+```
+
+]
+
+---
+# Wouldn't it be great if...
+
+.pull-left[
+- You could keep code, results, and text in the same document?
+- Your results and plots were automatically generated from your data, so your documents were automatically updated if your data changed?
+- The file format of your documents was future-proof?
+- The syntax for this was easy?
+]
+
+.pull-right[
+```{r, echo=FALSE}
+#image_read("figures/markdown-ref.png") %>% 
+#  image_crop("1030x900+0+95") %>% 
+#  image_write("figures/cropped.png", format = "png")
+knitr::include_graphics("figures/cropped.png")
+```
+*Markdown*
+]
+
+---
+# Wouldn't it be great if...
+
+.pull-left[
+- You could keep code, results, and text in the same document?
+- Your results and plots were automatically generated from your data, so your documents were automatically updated if your data changed?
+- The file format of your documents was future-proof?
+- The syntax for this was easy?
+]
+
+.pull-right[
+```{r, echo=FALSE}
+knitr::include_graphics("figures/latex.png")
+```
+
+]
+
+---
+
+.row[
+.col-6[
+<blockquote class="twitter-tweet" data-lang="en-gb"><p lang="en" dir="ltr">Hey, here&#39;s a short story whose moral is this: Consider writing empirical reports in RMarkdown... THREAD /1</p>&mdash; Heather Urry (@HeatherUrry) <a href="https://twitter.com/HeatherUrry/status/1100585163829006341?ref_src=twsrc%5Etfw">27 February 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+]
+]
+
+---
+
+.row[
+.col-6[
+<blockquote class="twitter-tweet" data-lang="en-gb"><p lang="en" dir="ltr">Hey, here&#39;s a short story whose moral is this: Consider writing empirical reports in RMarkdown... THREAD /1</p>&mdash; Heather Urry (@HeatherUrry) <a href="https://twitter.com/HeatherUrry/status/1100585163829006341?ref_src=twsrc%5Etfw">27 February 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+]
+
+.col-6[
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="en-gb"><p lang="en" dir="ltr">A new PDF compiled in a matter of seconds with all of the results - text stats, tables, figures - updated automatically throughout the manuscript LIKE MAGIC. ITS LIKE GODDAMN FUCKING MAGIC. /9 <a href="https://t.co/x32sN8eaai">pic.twitter.com/x32sN8eaai</a></p>&mdash; Heather Urry (@HeatherUrry) <a href="https://twitter.com/HeatherUrry/status/1100585195349135361?ref_src=twsrc%5Etfw">27 February 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+]
+
+]
+
+---
+
+.row[
+.col-6[
+<blockquote class="twitter-tweet" data-lang="en-gb"><p lang="en" dir="ltr">Hey, here&#39;s a short story whose moral is this: Consider writing empirical reports in RMarkdown... THREAD /1</p>&mdash; Heather Urry (@HeatherUrry) <a href="https://twitter.com/HeatherUrry/status/1100585163829006341?ref_src=twsrc%5Etfw">27 February 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+<blockquote class="twitter-tweet" data-lang="en-gb"><p lang="en" dir="ltr">My point is this: If you think you&#39;ll ever be in the position of having to re-do stats for a manuscript at some point - and, c&#39;mon, you know you will - then invest some time in establishing a reproducible manuscript workflow. 11/</p>&mdash; Heather Urry (@HeatherUrry) <a href="https://twitter.com/HeatherUrry/status/1100585200159985665?ref_src=twsrc%5Etfw">27 February 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+
+]
+
+.col-6[
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="en-gb"><p lang="en" dir="ltr">A new PDF compiled in a matter of seconds with all of the results - text stats, tables, figures - updated automatically throughout the manuscript LIKE MAGIC. ITS LIKE GODDAMN FUCKING MAGIC. /9 <a href="https://t.co/x32sN8eaai">pic.twitter.com/x32sN8eaai</a></p>&mdash; Heather Urry (@HeatherUrry) <a href="https://twitter.com/HeatherUrry/status/1100585195349135361?ref_src=twsrc%5Etfw">27 February 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+]
+
+]
+
+---
+
+class: center, middle
+
+# Anatomy of an <br> R Markdown Document
+
+---
+**R Markdown file = plain text file with extension _.Rmd_**
+
+````markdown
+---
+title: "Diamond sizes"
+date: 2016-08-25
+output: html_document
+---
+
+`r ''````{r setup, include=FALSE}
+library(ggplot2)
+library(dplyr)
+
+smaller <- diamonds %>% 
+  filter(carat <= 2.5)
+```
+
+# Shine bright like a diamond
+We have data about ``r ''`r nrow(diamonds)` diamonds.
+Only ``r ''`r nrow(diamonds) - nrow(smaller)` are larger than 2.5 carats. 
+The distribution of the remainder is shown below:
+
+`r ''````{r}
+smaller %>% 
+  ggplot(aes(carat)) + 
+  geom_freqpoly(binwidth = 0.01)
+  
+```
+````
+
+???
+This is what an R Markdown file looks like - plain text that you save with the extension .Rmd
+
+It has three parts
+
+---
+
+**YAML header ("YAML Ain't Markup Language")**
+
+````markdown
+*---
+*title: "Diamond sizes"
+*date: 2016-08-25
+*output: html_document
+*---
+
+`r ''````{r setup, include=FALSE}
+library(ggplot2)
+library(dplyr)
+
+smaller <- diamonds %>% 
+  filter(carat <= 2.5)
+```
+
+# Shine bright like a diamond
+We have data about ``r ''`r nrow(diamonds)` diamonds.
+Only ``r ''`r nrow(diamonds) - nrow(smaller)` are larger than 2.5 carats. 
+The distribution of the remainder is shown below:
+
+`r ''````{r}
+smaller %>% 
+  ggplot(aes(carat)) + 
+  geom_freqpoly(binwidth = 0.01)
+  
+```
+````
+
+???
+- a header between three dashes
+- we have these key-value pairs, like 'title: "Diamond sizes"'
+- with these we specify meta-data about the document, such as title, author date, etc. and information about what kind of output format we want
+
+---
+
+**Text**
+
+````markdown
+---
+title: "Diamond sizes"
+date: 2016-08-25
+output: html_document
+---
+
+`r ''````{r setup, include=FALSE}
+library(ggplot2)
+library(dplyr)
+
+smaller <- diamonds %>% 
+  filter(carat <= 2.5)
+```
+
+*# Shine bright like a diamond
+*We have data about ``r ''`r nrow(diamonds)` diamonds.
+*Only ``r ''`r nrow(diamonds) - nrow(smaller)` are larger than 2.5 carats. 
+*The distribution of the remainder is shown below:
+
+`r ''````{r}
+smaller %>% 
+  ggplot(aes(carat)) + 
+  geom_freqpoly(binwidth = 0.01)
+
+```
+````
+---
+**Code**
+
+````markdown
+---
+title: "Diamond sizes"
+date: 2016-08-25
+output: html_document
+---
+
+*`r ''````{r setup, include=FALSE}
+*library(ggplot2)
+*library(dplyr)
+*
+*smaller <- diamonds %>% 
+* filter(carat <= 2.5)
+*```
+
+# Shine bright like a diamond
+We have data about ``r ''`r nrow(diamonds)` diamonds.
+Only ``r ''`r nrow(diamonds) - nrow(smaller)` are larger than 2.5 carats. 
+The distribution of the remainder is shown below:
+
+*`r ''````{r}
+*smaller %>% 
+* ggplot(aes(carat)) + 
+* geom_freqpoly(binwidth = 0.01)
+*
+*```
+````
+---
+class: center, middle
+
+# What Can It Do? <br> Output formats
+
+---
+class: center, middle, inverse
+![](figures/rmarkdownoutputformats.png)
+
+???
+let's do a quick demo
+
+---
+
+class: center, middle, inverse
+
+![](figures/rmarkdownflow.png)
+
+
+---
+class: center, middle
+
+# Basic syntax
+
+---
+
+.pull-left[
+  ### This...
+  \*italics\* and \**bold\**  
+  
+  <span>&#96;</span>inline code&#96;
+  
+  sub~2~/superscript^2^
+  
+  \~\~strikethrough\~\~
+  
+  escaped: \\* \\_ \\\
+  
+  endash: --, emdash: ---
+  
+  \> blockquote
+  
+  \# Header 1
+  
+  \#\# Header 2
+  
+  *Line break: End line with 2+ spaces, or backslash:* <br>
+  Roses are red <br>
+  Violets are blue
+  
+  Roses are red \ <br>
+  Violets are blue
+]
+
+.pull-right[
+  ### turns into this...
+  *italics* and **bold**
+  
+  `inline code`
+  
+  sub<sub>2</sub>/superscript<sup>2</sup>
+  
+  ~~strikethrough~~
+  
+  escaped: \* \_ \\
+  
+  endash: &ndash;, emdash: &mdash;
+  
+  > blockquote
+  
+  # Header 1
+  ## Header 2
+  
+  Roses are red Violets are blue
+  
+  Roses are red <br>
+  Violets are blue
+]
+
+---
+
+.pull-left[
+  ### This...
+  
+  \- unordered list <br>
+  &nbsp; &nbsp; \- sub-item <br>
+  &nbsp; &nbsp; \- sub-item 2 <br>
+  &nbsp; &nbsp; &nbsp; \- sub-sub-item
+  
+  1\. ordered list <br>
+  2\. item 2 <br>
+  &nbsp; &nbsp; \- sub-item 1 <br>
+  &nbsp; &nbsp; \- sub-item 2
+  
+
+  <br>
+  inline-math: &#36;A = \pi*r^{2}&#36;
+  
+  math-block: <span>&#36;</span>&#36;A = \pi*r^{2}&#36;&#36;
+  
+  \[text for hyperlink\](https://www.google.com)
+  
+  A footnote [^1]
+  
+  [^1]: here is the footnote text.
+  
+  <span><!-</span>- this is a comment that won't be shown -<span>-></span>
+  
+]
+.pull-right[
+  ### turns into this...
+  
+  - unordered list
+    - sub-item
+    - sub-item 2
+      - sub-sub-item
+  
+  1. ordered list
+  1. item 2 <br>
+    i. sub-item 1 <br>
+    ii. sub-item 2
+  
+  inline-math: $A = \pi*r^{2}$
+  
+  math-block: $$A = \pi*r^{2}$$
+  
+  [text for hyperlink](https://www.google.com)
+  
+  A footnote<sup>1</sup>
+  
+  .footnote[[1] Here is the footnote text.]
+  
+]
+
+---
+.center[
+# Time for practice!
+]
+
+Everybody should already have on their laptops...
+- [R](https://cran.rstudio.com) and [RStudio](https://www.rstudio.com/products/rstudio/download/preview/) + the R packages `bookdown` and `tidyverse` (`install.packages(package-name)`)
+- a LaTeX installation, for knitting to PDF (`tinytex::install_tinytex()`)
+
+--
+.row[
+
+.col-4[
+## Beginner
+]
+.col-4[
+## Intermediate
+]
+.col-4[
+## Advanced
+]
+
+]
+
+--
+.row[
+
+.col-4[
+*Create a new R Markdown document* <br>
+(File > New File > R Markdown...)
+
+*Knit to HTML, PDF, Word*
+
+*Tweak the content*
+- add your name and today's date to YAML header
+- add a paragraph, containing a header, **bold**, and *italics*
+- knit to output of your choice
+- what creates linebreaks and new paragraphs?
+]
+  
+.col-4[
+In a new R Markdown document, write a paragraph that contains
+- a hyperlink
+- a blockquote
+- a comment
+- some math
+
+Skim through the references available from within RStudio:
+- Help > Cheatsheets > R Markdown Cheat Sheet
+- Help > Cheatsheet > R Markdown Reference Guide
+- Help > Markdown Quick Reference
+]
+
+.col-4[
+- when making footnotes, what are the two ways you can place the footnote text?
+- how do you get literal backticks in your output?
+- what's the difference between outputting to `rmarkdown::pdf_document` and `bookdown::pdf_document2`?
+
+]
+
+]
+
+
+---
+class: center, middle
+
+# Code
+
+---
+# Code chunks
+
+![](figures/chunk-parts.png)
+--
+
+**Some common chunk options** (see e.g. [bookdown.org](https://bookdown.org/yihui/rmarkdown/r-code.html))
+- `echo`: whether or not to display code in knitted output
+- `eval`: whether or to to run the code in the chunk when knitting
+- `include`: wheter to include anything from the from a code chunk in the output document
+- `fig.cap`: figure caption
+
+---
+# Typical chunks
+### Setup chunk
+````markdown
+`r ''````{r setup, include=FALSE}
+# don't show code unless we explicitly set echo = TRUE
+knitr::opts_chunk$set(echo = FALSE)
+
+library(tidyverse)
+```
+````
+
+--
+- Normally, an R Markdown document starts with a chunk that's used to set some options and load required libraries.
+
+--
+- `knitr::opts_chunk$set` sets default options for all chunks.
+
+
+---
+### Including images
+
+````markdown
+`r ''````{r, fig.cap="R Markdown logo"}
+knitr::include_graphics("figures/markdown.png")
+```
+````
+
+.center[
+```{r, out.width="32%"}
+knitr::include_graphics("figures/rmarkdown.png")
+```
+.caption[
+R Markdown logo
+]
+
+]
+
+---
+### Including plots
+
+````markdown
+`r ''````{r, fig.cap = "A ggplot of cars' speed and stopping distance"}
+cars %>% 
+  ggplot() +
+    aes(x = speed, y = dist) +
+    geom_point()
+```
+````
+
+.center[
+```{r, out.width="30%"}
+cars %>% 
+  ggplot() +
+    aes(x = speed, y = dist) +
+    geom_point()
+```
+
+.caption[
+A ggplot of cars' speed and stopping distance
+]
+
+]
+
+
+
+---
+### Including tables
+
+````markdown
+`r ''````{r}
+cars %>% 
+  head() %>% 
+  knitr::kable(caption = "A knitr kable table")
+```
+````
+
+.center[
+```{r}
+# cars is a built-in-to-R data set of cars
+# and their stopping distances
+cars %>% 
+  head(5) %>% 
+  knitr::kable(format = "html", caption = "A knitr kable table")
+```
+
+]
+
+<br>
+
+--
+- Gotcha: when using [`kable`](https://www.rdocumentation.org/packages/knitr/versions/1.21/topics/kable), captions  are set inside the `kable` function
+- The `kable` package is often used with the [`kableExtra`](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html) package
+- A number of other packages are available for making pretty tables, see [rmarkdown.rstudio.com](https://rmarkdown.rstudio.com/lesson-7.html)
+
+---
+# Inline code
+
+Inside your text you can write code using the syntax <span>&#96;</span>r code here&#96;.
+
+For example, <span>&#96;</span>r 4 + 4&#96; would output `r 4 + 4` in your text.
+
+```{r, echo = TRUE}
+diamonds
+
+num_diamonds <- nrow(diamonds)
+
+```
+
+.pull-left[
+There are <span>&#96;</span>r num_diamonds&#96; rows in the `diamonds` dataset.
+]
+
+.pull-right[
+There are `r num_diamonds` rows in the `diamonds` dataset.
+]
+---
+# Inline code with python
+
+[At the moment](https://stackoverflow.com/questions/47818461/is-there-a-way-in-knitr-to-evaluate-inline-code-chunks-of-other-languages), syntax like <span>&#96;</span>python code here&#96; is not valid.
+
+However, you can use the [`reticulate`](https://rstudio.github.io/reticulate/articles/r_markdown.html) package to insert variables from python chunks into your output.
+
+````markdown
+`r ''````{python}
+my_number = 4 + 8
+
+print(my_number)
+
+```
+````
+
+```{python}
+my_number = 4 + 8
+print(my_number)
+```
+
+
+````markdown
+`r ''````{r}
+library(reticulate)
+
+py$my_number
+
+```
+````
+
+```{r}
+py$my_number
+```
+
+Inline you can then refer to this python variable with <span>&#96;</span>r py$my_number&#96; - `my_number` is `r py$my_number`.
+
+
+---
+
+
+---
+background-image: url("figures/notebook-demo.png")
+background-size: cover
+background-position: 0% 0%
+class: center, bottom, inverse
+
+# Interactive notebook
+
+---
+background-image: url("figures/plain-text.png")
+background-position: 0% 0%
+class: center, bottom, inverse
+
+# Plain text
+
+--
+```{r}
+knitr::include_graphics("figures/too-old.png")
+```
+
+---
+
+background-image: url("figures/markdown.png")
+background-position: 20% 10%
+class: center, bottom, inverse
+
+# Markdown
+
+--
+```{r}
+knitr::include_graphics("figures/latex.png")
+```

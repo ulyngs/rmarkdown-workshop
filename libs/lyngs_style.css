@@ -1,0 +1,53 @@
+.body, h1, h2, h3 {
+  font-family: 'Helvetica Neue';
+  font-weight: 350;
+}
+
+.inline-highlight {
+  background-color: #ffff88;  
+}
+
+.remark-inline-code{
+  /* background: #F5F5F5; /* lighter */
+  background: #e7e8e2; /* darker */
+  border-radius: 3px;
+  padding: 4px;
+}
+
+.caption {
+  text-align: center;
+  font-size: .8rem;
+}
+
+h1 {
+  -webkit-margin-before: 0.1em;
+  -webkit-margin-after: 0.1em !important;  
+  padding-bottom: 0 !important;
+}
+
+h2 {
+  -webkit-margin-before: 0.1em;
+  -webkit-margin-after: 0.1em !important;  
+}
+
+.logo {
+    transform: rotate(15deg);
+    margin-left: 15%;
+}
+
+/*style title slide*/
+.title-slide .title h1 {
+  padding-top: 20%;
+  font-size: 3.2em;
+}
+.title-slide .author {
+  padding-top: 10%;
+}
+.title-slide .col-5 {
+  padding-right: 0;
+}
+.title-slide .fab,
+.title-slide .ai {
+  color: black;
+  margin-right: 5px;
+}
