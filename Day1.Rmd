@@ -56,28 +56,28 @@ knitr::include_graphics("figures/rmarkdown.png")
 
 ]
 
+??? who am I?
+- 3rd year DPhil student, [Human Centred Computing Group](https://www.cs.ox.ac.uk/research/HCC/)
+- Cognitive psychologist-turned-computer scientist
+- fan of open science, think R Markdown's got stuff going for it
+
 ---
 <iframe width="1300" height="600" src="https://www.youtube.com/embed/s3JldKoA0zw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ---
 class: center, middle, inverse
 
-# Who am I?
+# Why am I here?
 
 ---
+# R Markdown here
+
 .pull-left[
-## Personal
-- 3rd year DPhil student, [Human Centred Computing Group](https://www.cs.ox.ac.uk/research/HCC/)
-- Cognitive psychologist-turned-computer scientist
-- Research: attention and self-control in relation to digital device use
-]
---
-.pull-right[
-## R Markdown nerd
 **Packages for paper and thesis writing with R markdown**
 - ACM CHI conference - [proceedings](https://github.com/ulyngs/chi-proc-rmd-template) and [extended abstracts](https://github.com/ulyngs/chi-ea-rmd-template) format
-- Example paper here: [Self-Control in Cyberspace: Applying Dual Systems Theory to Self-Control Tools](https://osf.io/zyj4h/) 
+- Example paper on OSF: [Self-Control in Cyberspace: Applying Dual Systems Theory to Self-Control Tools](https://osf.io/zyj4h/) 
 - [`oxforddown`](https://github.com/ulyngs/oxforddown) template for Oxford University thesis writing
 ]
+
 --
 .pull-right[
 **Blogging (in and about R Markdown)**
@@ -98,7 +98,7 @@ class: middle
 .large[
 - Why R Markdown?
 - Basic syntax: Markdown & code
-- Final pieces: Cross-referencing, citations, captions
+- Final pieces: Citations, cross-referencing, captions
 ]
 ]
 
@@ -113,19 +113,22 @@ class: middle
 ]
 ]
 
+???
+Say something about the different levels we have and how we'll handle this
+
 ---
 class: center, middle, inverse
 
-# R Markdown basics
+# Day 1: Fundamentals
 
 ---
 # Wouldn't it be great if...
 
 --
-- You could keep code, results, and text in the same document?
+- You could have code, results, and text in the same document?
 
 --
-- Your results and plots were automatically generated from your data, so your documents were automatically updated if your data changed?
+- Your results and plots were automatically generated from your data, so your documents were updated if your data changed?
 
 --
 - The file format of your documents was future-proof?
@@ -137,8 +140,8 @@ class: center, middle, inverse
 # Wouldn't it be great if...
 
 .pull-left[
-- You could keep code, results, and text in the same document?
-- Your results and plots were automatically generated from your data, so your documents were automatically updated if your data changed?
+- You could have code, results, and text in the same document?
+- Your results and plots were automatically generated from your data, so your documents were updated if your data changed?
 - The file format of your documents was future-proof?
 - The syntax for this was easy?
 ]
@@ -156,8 +159,8 @@ knitr::include_graphics("figures/notebook-demo.png")
 # Wouldn't it be great if...
 
 .pull-left[
-- You could keep code, results, and text in the same document?
-- Your results and plots were automatically generated from your data, so your documents were automatically updated if your data changed?
+- You could have code, results, and text in the same document?
+- Your results and plots were automatically generated from your data, so your documents were updated if your data changed?
 - The file format of your documents was future-proof?
 - The syntax for this was easy?
 ]
@@ -176,8 +179,8 @@ knitr::include_graphics("figures/plain-text.png")
 # Wouldn't it be great if...
 
 .pull-left[
-- You could keep code, results, and text in the same document?
-- Your results and plots were automatically generated from your data, so your documents were automatically updated if your data changed?
+- You could have code, results, and text in the same document?
+- Your results and plots were automatically generated from your data, so your documents were updated if your data changed?
 - The file format of your documents was future-proof?
 - The syntax for this was easy?
 ]
@@ -197,8 +200,8 @@ knitr::include_graphics("figures/cropped.png")
 # Wouldn't it be great if...
 
 .pull-left[
-- You could keep code, results, and text in the same document?
-- Your results and plots were automatically generated from your data, so your documents were automatically updated if your data changed?
+- You could have code, results, and text in the same document?
+- Your results and plots were automatically generated from your data, so your documents were updated if your data changed?
 - The file format of your documents was future-proof?
 - The syntax for this was easy?
 ]
@@ -250,7 +253,7 @@ knitr::include_graphics("figures/latex.png")
 
 ---
 
-class: center, middle
+class: center, middle, inverse
 
 # Anatomy of an <br> R Markdown Document
 
@@ -358,6 +361,7 @@ smaller %>%
 
 ```
 ````
+
 ---
 **Code**
 
@@ -388,17 +392,27 @@ The distribution of the remainder is shown below:
 *
 *```
 ````
+
 ---
-class: center, middle
+class: center, middle, inverse
 
 # What Can It Do? <br> Output formats
 
 ---
-class: center, middle, inverse
-![](figures/rmarkdownoutputformats.png)
+class: center, middle
+
+**Document** your analyses, make a **website**, write your **paper**, <br>
+make **slides**... the world is your oyster!
+
+```{r, out.width="90%"}
+knitr::include_graphics("figures/rmarkdown_universe.jpg")
+```
+
 
 ???
 let's do a quick demo
+
+credit: https://www.williamrchase.com/slides/intro_r_anthropology_2018#82
 
 ---
 
@@ -552,7 +566,7 @@ Everybody should already have on their laptops...
 --
 .row[
 
-.col-4[
+.col-4.beginner[
 *Create a new R Markdown document* <br>
 (File > New File > R Markdown...)
 
@@ -565,7 +579,7 @@ Everybody should already have on their laptops...
 - what creates linebreaks and new paragraphs?
 ]
   
-.col-4[
+.col-4.intermediate[
 In a new R Markdown document, write a paragraph that contains
 - a hyperlink
 - a blockquote
@@ -578,7 +592,7 @@ Skim through the references available from within RStudio:
 - Help > Markdown Quick Reference
 ]
 
-.col-4[
+.col-4.advanced[
 - when making footnotes, what are the two ways you can place the footnote text?
 - how do you get literal backticks in your output?
 - what's the difference between outputting to `rmarkdown::pdf_document` and `bookdown::pdf_document2`?
@@ -628,14 +642,16 @@ library(tidyverse)
 ---
 ### Including images
 
+.pull-left[
 ````markdown
 `r ''````{r, fig.cap="R Markdown logo"}
 knitr::include_graphics("figures/markdown.png")
 ```
 ````
+]
 
-.center[
-```{r, out.width="32%"}
+.pull-right[
+```{r, out.width="60%", fig.align='center'}
 knitr::include_graphics("figures/rmarkdown.png")
 ```
 .caption[
@@ -647,8 +663,9 @@ R Markdown logo
 ---
 ### Including plots
 
+.pull-left[
 ````markdown
-`r ''````{r, fig.cap = "A ggplot of cars' speed and stopping distance"}
+`r ''````{r, fig.cap = "A ggplot of car stuff"}
 cars %>% 
   ggplot() +
     aes(x = speed, y = dist) +
@@ -656,8 +673,10 @@ cars %>%
 ```
 ````
 
-.center[
-```{r, out.width="30%"}
+]
+
+.pull-right[
+```{r, out.width="90%", fig.align='center'}
 cars %>% 
   ggplot() +
     aes(x = speed, y = dist) +
@@ -665,7 +684,7 @@ cars %>%
 ```
 
 .caption[
-A ggplot of cars' speed and stopping distance
+A ggplot of car stuff
 ]
 
 ]
@@ -673,9 +692,9 @@ A ggplot of cars' speed and stopping distance
 
 
 ---
-class: small-font
 ### Including tables
 
+.pull-left[
 ````markdown
 `r ''````{r}
 cars %>% 
@@ -683,8 +702,9 @@ cars %>%
   knitr::kable(caption = "A knitr kable table")
 ```
 ````
+]
 
-.center[
+.pull-right[
 ```{r}
 # cars is a built-in-to-R data set of cars
 # and their stopping distances
@@ -706,7 +726,7 @@ cars %>%
 # Inline code
 
 --
-Inside your text you can write code using the syntax <span>&#96;</span>r code here&#96;.
+Inside your text you can include code with the syntax <span>&#96;</span>r code here&#96;.
 
 
 --
@@ -729,6 +749,7 @@ There are <span>&#96;</span>r num_diamonds&#96; rows in the `diamonds` dataset.
 .pull-right[
 There are `r num_diamonds` rows in the `diamonds` dataset.
 ]
+
 ---
 # Inline code with python
 
@@ -737,7 +758,7 @@ There are `r num_diamonds` rows in the `diamonds` dataset.
 
 
 --
-However, you can use the [`reticulate`](https://rstudio.github.io/reticulate/articles/r_markdown.html) package to insert variables from python chunks into your output.
+However, you can use the [`reticulate`](https://rstudio.github.io/reticulate/articles/r_markdown.html) package to access variables from python chunks.
 
 --
 ````markdown
@@ -773,6 +794,73 @@ Inline you can then refer to this python variable with <span>&#96;</span>r py$my
 
 
 ---
+.center[
+# Time for practice!
+]
+
+.row[
+
+.col-4[
+## Beginner
+]
+.col-4[
+## Intermediate
+]
+.col-4[
+## Advanced
+]
+
+]
+
+--
+.row[
+
+.col-4.beginner[
+In a new R Markdown document, use code chunks to
+- include an image with `knitr::include_graphics`
+- include a plot (e.g. `plot(pressure)`)
+- include a table (using `kable`)
+- report a calculation inline
+]
+  
+.col-4.intermediate[
+- try resizing plots with `out.width` and `fig.width` - what's the difference?
+- how do you set `knitr`'s global options to hide code by default? 
+- what other options are available to control if a code block is executed and what results are inserted in the finished report? (Hint: see [R for Data Science, 27.4.2](https://r4ds.had.co.nz/r-markdown.html))
+]
+
+.col-4.advanced[
+- what's the use of `cache = TRUE`? How does it relate to the `dependson` chunk option?
+- how might you create new chunk options, if the ones provided by `knitr` are not sufficient?
+]
+]
+
+---
+class: center, middle, inverse
+
+# Final pieces
+
+---
+# Citations
+- the syntax'
+- .bib files
+- the `citr` package
+- .csl styles
+
+---
+# Cross-referencing
+
+- the `bookdown` package
+- refer to sections
+- refer to chunks
+- refer to text
+
+---
+# Captions
+- we've already seen how to apply these
+- if you need fancy syntax in your caption, then you need to do so with a text reference (for 'complicated reasons')
+
+---
 
 .center[
 # Time for practice!
@@ -795,56 +883,22 @@ Inline you can then refer to this python variable with <span>&#96;</span>r py$my
 --
 .row[
 
-.col-4[
+.col-4.beginner[
 In a new R Markdown document, use code chunks to
-- include an image with `knitr::include_graphics`
-- include a plot (e.g. with `plot(pressure)`)
-- include a table (using the `kable` function)
-- report a calculation inline
+- install `citr` with SYNTAX HERE
+- try citing something
 ]
   
-.col-4[
-- try resizing plots with `out.width` and `fig.width` - what's the difference?
-- how do you set `knitr`'s global options to hide code by default? 
-- what other options are available to control if a code block is executed and what results are inserted in the finished report? (Hint: see [R for Data Science, 27.4.2](https://r4ds.had.co.nz/r-markdown.html))
-]
-
-.col-4[
-- what's the use of `cache = TRUE`? How does it relate to the `dependson` chunk option?
-- how might you create new chunk options, if the ones provided by `knitr` are not sufficient?
-]
+.col-4.intermediate[
+- natbib?
+- try different styles
 
 ]
 
----
-background-image: url("figures/notebook-demo.png")
-background-size: cover
-background-position: 0% 0%
-class: center, bottom, inverse
+.col-4.advanced[
+- use a text reference
 
-# Interactive notebook
+]
+]
 
 ---
-background-image: url("figures/plain-text.png")
-background-position: 0% 0%
-class: center, bottom, inverse
-
-# Plain text
-
---
-```{r}
-knitr::include_graphics("figures/too-old.png")
-```
-
----
-
-background-image: url("figures/markdown.png")
-background-position: 20% 10%
-class: center, bottom, inverse
-
-# Markdown
-
---
-```{r}
-knitr::include_graphics("figures/latex.png")
-```
