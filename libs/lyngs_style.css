@@ -36,18 +36,82 @@ h2 {
 }
 
 /*style title slide*/
-.title-slide .title h1 {
-  padding-top: 20%;
+.title-slide .title h1,
+.title-slide-2 .title h1{
+  padding-top: 10%;
   font-size: 3.2em;
 }
-.title-slide .author {
-  padding-top: 10%;
+.title-slide-2 .subtitle h3 {
+  margin-top: 1.5%;
+  margin-bottom: 2.5%;
 }
+
+.title-slide .author {
+  padding-top: 5%;
+}
+.title-slide-2 .author {
+  padding-top: 2%;
+}
+
 .title-slide .col-5 {
   padding-right: 0;
 }
 .title-slide .fab,
-.title-slide .ai {
+.title-slide .ai,
+.title-slide-2 .fab,
+.title-slide-2 .ai {
   color: black;
   margin-right: 5px;
+}
+.title-slide .author h3,
+.title-slide .affiliation h3,
+.title-slide-2 .author h3,
+.title-slide-2 .affiliation h3
+{
+  font-size: 1.5em;
+  padding-bottom: 0;
+}
+
+
+/* general style */
+li {
+  margin-bottom: 15px;
+}
+
+.large {
+  font-size: 130%;
+}
+
+h1.huge{
+  font-size: 300%;
+}
+
+p, li {
+  font-size: 1.2em;
+}
+
+.on-top-right {
+  position: absolute;
+  left: 60%;
+  top: 40%;
+}
+
+/* syntax-slide */
+.syntax-slide p,
+.syntax-slide li,
+.small-font p,
+.small-font li{
+  font-size: 1.05em;
+  margin-bottom: 0;
+}
+.syntax-slide h3 {
+  margin-top: 0;
+}
+
+/* practice slide */
+.practice-slide li,
+.practice-slide p,
+.practice-slide ul {
+  font-size: 1em;
+  margin-bottom: 0;
 }
