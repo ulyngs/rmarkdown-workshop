@@ -115,3 +115,17 @@ p, li {
   font-size: 1em;
   margin-bottom: 0;
 }
+
+.beginner {
+  background-color: #61BE37;
+  border-radius: 25px;
+}
+
+.intermediate {
+  background-color: #E0BE37;
+  border-radius: 25px;
+}
+.advanced {
+  background-color: #FF3934;
+  border-radius: 25px;
+}
