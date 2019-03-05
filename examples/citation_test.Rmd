@@ -1,0 +1,24 @@
+---
+title: "Citation test"
+bibliography: example.bib
+#csl: citation_styles/apa.csl
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# This is a citation test
+
+Blah blah [@Shea2014; @Lottridge2012].
+
+Shea et al. says blah [-@Shea2014].
+
+@Shea2014 says blah.
+
+@Shea2014 [p. 33] says blah.
+
+Blah blah [see @Shea2014, pp. 33-35; also @Wu2016, ch. 1].
+
+# References

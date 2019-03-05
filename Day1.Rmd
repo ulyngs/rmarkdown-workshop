@@ -98,7 +98,7 @@ class: middle
 .large[
 - Why R Markdown?
 - Basic syntax: Markdown & code
-- Final pieces: Citations, cross-referencing, captions
+- Final pieces: Citations & cross-referencing
 ]
 ]
 
@@ -431,7 +431,7 @@ class: syntax-slide
 
 .pull-left[
   ### This...
-  \*italics\* and \**bold\**  
+  \*italics\* and \*\*bold\*\*  
   
   <span>&#96;</span>inline code&#96;
   
@@ -842,24 +842,148 @@ class: center, middle, inverse
 
 ---
 # Citations
-- the syntax'
-- .bib files
-- the `citr` package
-- .csl styles
+
+<ol>
+<li> Put references in a plain text file with the extension **.bib**, in **BibTex** format (most reference managers can do this - [Zotero](https://www.zotero.org) works best, I use [Mendeley](https://www.mendeley.com)).<sup>1</sup> <br>
+Note that 'Shea2014' in the highlighted section is the **citation identifier**.
+</ol>
+```bibtex
+*@article{Shea2014,
+  author =        {Shea, Nicholas and Boldt, Annika},
+  journal =       {Trends in Cognitive Sciences},
+  pages =         {186--193},
+  title =         {{Supra-personal cognitive control}},
+  volume =        {18},
+  year =          {2014},
+  doi =           {10.1016/j.tics.2014.01.006},
+}
+```
+<ol start = 2>
+<li>Reference this file in your YAML header
+</ol>
+```yaml
+---
+title: "Citation test"
+bibliography: example.bib
+output: html_document
+---
+```
+
+[1] The bibliography can be in other formats as well, including EndNote (**.enl**) and RIS (**.ris**), see [rmarkdown.rstudio.com/authoring_bibliographies_and_citations](https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html)
 
 ---
-# Cross-referencing
+# Citations
+<ol start = 3>
+<li>In your text, citations go inside brackets and separated by semicolons. <br> By default the Chicago author-date format is used in the output:
+</ol>
 
-- the `bookdown` package
-- refer to sections
-- refer to chunks
-- refer to text
+.pull-left[
+### This...
+Blah blah [@Shea2014; @Lottridge2012].
+  
+Shea et al. says blah [-@Shea2014].
+
+@Shea2014 says blah.<br>
+@Shea2014 [p. 33] says blah.
+
+Blah blah [see @Shea2014, pp. 33-35; also @Wu2016, ch. 1].
+]
+
+.pull-right[
+### turns into this...
+  
+Blah blah (Shea et al. 2014; Lottridge et al. 2012).
+
+Shea et al. says blah (2014).
+
+Shea et al. (2014) says blah.<br>
+Shea et al. (2014, 33) says blah.
+
+Blah blah (see Shea et al. 2014, 33–35; also Wu 2016, ch. 1).
+]
+
+You can add e.g `csl: my-style.csl` in the YAML header to change to other formats - browse through and download styles at [zotero.org/styles](https://www.zotero.org/styles)
 
 ---
-# Captions
-- we've already seen how to apply these
-- if you need fancy syntax in your caption, then you need to do so with a text reference (for 'complicated reasons')
+# Citations
+For an easy way to insert citations, try the [`citr`](https://github.com/crsh/citr) RStudio add-in.
 
+.row[
+  .col-4[
+  `install.packages("citr")`
+  ]
+  
+  .col-8[
+  .center[
+  ```{r, out.width="75%"}
+  knitr::include_graphics("https://raw.githubusercontent.com/crsh/citr/master/tools/images/addin_demo.gif")
+  ```
+  ]
+  ]
+
+]
+
+---
+# [Cross-referencing](https://bookdown.org/yihui/bookdown/cross-references.html)
+- The `bookdown` package adds capability to do cross-referencing. We can refer to **sections** within our document, to **figures** and **tables**, and even pieces of **text**.
+- To enable this ability, set output to e.g. `bookdown::html_document2`, `bookdown::pdf_document2`, `bookdown::word_document2`, etc. (see [bookdown.org](https://bookdown.org/yihui/bookdown/output-formats.html))
+
+## Section references
+Whenever we use a header (with a \#), a label is automatically assigned, namely the header name in lower-caps separated by dashes: <br> **So a section `# My section` is automatically given the label `my-section`.**
+
+To make a cross-reference, use the syntax `\@ref(label)`. <br> **So we can refer to that section above with `\@ref(my-section)`.**
+
+You can add your own labels to headers by adding `{\#label}` after a header, e.g. `\#My section {\#my-label}`.
+
+See examples here: [Rmd file](examples/cross_referencing.Rmd) and [HTML output](examples/cross_referencing.html).
+
+---
+## Figure and table references
+- **GOTCHA**: Figures and tables must have captions if you wish to cross-reference them.
+
+.pull-left[
+````markdown
+`r ''````{r captain, fig.cap="A marvel-lous meme"}
+knitr::include_graphics("figures/captain.jpeg")
+```
+````
+
+```{r captain, fig.align='center', fig.cap="A marvel-lous meme", out.width="65%"}
+knitr::include_graphics("figures/captain.jpeg")
+```
+
+]
+
+--
+.pull-right[
+- Recall that the first chunk option after the language is the label (we could also be explicit with `label=captain`).
+- To refer to figures (plots and images) use the syntax `\@ref(fig:label)`
+- So we'd refer to this image with `\@ref(fig:captain)`
+- See examples here: [Rmd](examples/cross_referencing.Rmd), [HTML](examples/cross-referencing.html)
+]
+
+---
+## Figure and table references
+.pull-left[
+````markdown
+`r ''````{r cars}
+knitr::kable(cars[1:5,],
+            caption="Stopping cars")
+```
+````
+
+```{r cars}
+knitr::kable(cars[1:5,],
+            caption="Some stopping distances for cars")
+```
+
+]
+
+.pull-right[
+- To refer to tables use the syntax `\@ref(tab:label)`
+- So we'd refer to this image with `\@ref(tab:cars)`
+- See examples here: [Rmd](examples/cross_referencing.Rmd), [HTML](examples/cross-referencing.html)
+]
 ---
 
 .center[
@@ -884,21 +1008,26 @@ class: center, middle, inverse
 .row[
 
 .col-4.beginner[
-In a new R Markdown document, use code chunks to
-- install `citr` with SYNTAX HERE
-- try citing something
+1. install the `citr` RStudio add-in
+2. Open **examples/citation_test.Rmd** and add a new paragraph with two citations - what happens when you knit?
+3. Make cross-references to a figure and a table
 ]
   
 .col-4.intermediate[
-- natbib?
-- try different styles
+1. Add a custom label to a header and reference it
+2. Have a look through [zotero.org/styles](https://www.zotero.org/styles); download two new styles and try them out in **examples/citation_test.Rmd**.
 
 ]
 
 .col-4.advanced[
-- use a text reference
-
+1. How would you handle a situation where special characters made `fig.cap` mess up? (.black[[hint](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references)])
+2. How do you stop pandoc from automatically inserting cited references by the end of the document?
 ]
 ]
 
 ---
+class: center, middle
+
+# That's all for today
+
+<iframe src="https://giphy.com/embed/8UF0EXzsc0Ckg" width="700" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>

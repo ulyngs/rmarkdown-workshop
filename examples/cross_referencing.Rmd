@@ -1,0 +1,73 @@
+---
+title: "Cross-referencing test"
+output: 
+  bookdown::html_document2: default
+  bookdown::pdf_document2:
+    keep_tex: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Section references
+## Another test header
+### A sub test header
+
+Now, let me refer to section \@ref(section-references).
+
+I notice that under section  \@ref(another-test-header) we have a sub-subsection, namely section \@ref(a-sub-test-header).
+
+In the next section, we have defined an explicit ID, namely in section \@ref(my-id).
+
+## My explicit header ID {#my-id}
+
+
+# Figure references
+**GOTCHA**: Figures must have captions - otherwise they won't be assigned labels. This is because there's otherwise nothing to refer to!
+
+## Images
+Refer to the chunk label with the syntax `\@ref(fig:label)`.
+
+```{r captain, fig.cap="A marvellous meme"}
+knitr::include_graphics("../figures/captain.jpeg")
+```
+
+In Figure \@ref(fig:captain), we see a great reference meme.
+
+## Plots
+Like images (generated plots are auomatically saved as images before they're included in the output): refer to the chunk label with the syntax `\@ref(fig:label)`.
+
+```{r pressure, fig.cap="Under pressure"}
+plot(pressure)
+```
+
+In Figures \@ref(fig:pressure) we see a plot of volcanic pressure.
+
+## Tables
+Refer to the chunk label with the syntax `\@ref(tab:label)`.
+
+```{r cars}
+knitr::kable(cars[1:5,],
+            caption="Some stopping distances for cars")
+```
+
+In Table \@ref(tab:cars) we see a few stopping distances at various speeds for various cars.
+
+## Text references
+If you need to use fancy syntax within your caption, you might need to either watch your escaping of characters in the figure caption, or do so with a [text reference](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references) - otherwise `knitr` will be confused.
+
+So the reference for Figure \@ref(fig:pressure-no-text-ref) requires an extra back-slash to do what we want.
+
+```{r pressure-no-text-ref, fig.cap = "Under more **pressure** than the caption shown in Figure \\@ref(fig:captain)"}
+plot(pressure)
+```
+
+The alternative is to define that same piece as a text reference with `(ref:pressure-text-ref) Under more **pressure** than the caption shown in Figure \@ref(fig:captain)`, and then point the figure caption to that piece of text with `fig.cap = "(ref:pressure-text-ref)"` we get what we want. See Figure \@ref(fig:pressure-text-ref).
+
+(ref:pressure-text-ref) Under more **pressure** than the caption shown in Figure \@ref(fig:captain)
+
+```{r pressure-text-ref, fig.cap = "(ref:pressure-text-ref)"}
+plot(pressure)
+```
+

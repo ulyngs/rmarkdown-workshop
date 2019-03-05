@@ -129,3 +129,7 @@ p, li {
   background-color: #FF3934;
   border-radius: 25px;
 }
+
+.black a {
+  color: black;
+}
