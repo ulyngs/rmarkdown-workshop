@@ -854,6 +854,7 @@ class: center, middle, inverse
 ---
 # Citations
 
+--
 &lt;ol&gt;
 &lt;li&gt; Put references in a plain text file with the extension **.bib**, in **BibTex** format (most reference managers can do this - [Zotero](https://www.zotero.org) works best, I use [Mendeley](https://www.mendeley.com)).&lt;sup&gt;1&lt;/sup&gt; &lt;br&gt;
 Note that 'Shea2014' in the highlighted section is the **citation identifier**.
@@ -869,6 +870,8 @@ Note that 'Shea2014' in the highlighted section is the **citation identifier**.
   doi =           {10.1016/j.tics.2014.01.006},
 }
 ```
+
+--
 &lt;ol start = 2&gt;
 &lt;li&gt;Reference this file in your YAML header
 &lt;/ol&gt;
@@ -880,6 +883,7 @@ output: html_document
 ---
 ```
 
+--
 [1] The bibliography can be in other formats as well, including EndNote (**.enl**) and RIS (**.ris**), see [rmarkdown.rstudio.com/authoring_bibliographies_and_citations](https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html)
 
 ---
@@ -888,6 +892,7 @@ output: html_document
 &lt;li&gt;In your text, citations go inside brackets and separated by semicolons. &lt;br&gt; By default the Chicago author-date format is used in the output:
 &lt;/ol&gt;
 
+--
 .pull-left[
 ### This...
 Blah blah [@Shea2014; @Lottridge2012].
@@ -935,15 +940,25 @@ For an easy way to insert citations, try the [`citr`](https://github.com/crsh/ci
 ---
 # [Cross-referencing](https://bookdown.org/yihui/bookdown/cross-references.html)
 - The `bookdown` package adds capability to do cross-referencing. We can refer to **sections** within our document, to **figures** and **tables**, and even pieces of **text**.
+
+--
 - To enable this ability, set output to e.g. `bookdown::html_document2`, `bookdown::pdf_document2`, `bookdown::word_document2`, etc. (see [bookdown.org](https://bookdown.org/yihui/bookdown/output-formats.html))
 
-## Section references
+
+--
+### Section references
 Whenever we use a header (with a \#), a label is automatically assigned, namely the header name in lower-caps separated by dashes: &lt;br&gt; **So a section `# My section` is automatically given the label `my-section`.**
 
+
+--
 To make a cross-reference, use the syntax `\@ref(label)`. &lt;br&gt; **So we can refer to that section above with `\@ref(my-section)`.**
 
+
+--
 You can add your own labels to headers by adding `{\#label}` after a header, e.g. `\#My section {\#my-label}`.
 
+
+--
 See examples here: [Rmd file](examples/cross_referencing.Rmd) and [HTML output](examples/cross_referencing.html).
 
 ---
@@ -995,6 +1010,8 @@ Table: Some stopping distances for cars
 
 ]
 
+
+--
 .pull-right[
 - To refer to tables use the syntax `\@ref(tab:label)`
 - So we'd refer to this image with `\@ref(tab:cars)`
