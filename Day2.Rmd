@@ -17,7 +17,7 @@ output:
       beforeInit: ["https://platform.twitter.com/widgets.js", "libs/cols_macro.js"]
     css: ["libs/lyngs_style.css", default, rutgers-fonts, libs/cols.css, "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap-grid.min.css", "https://use.fontawesome.com/releases/v5.7.2/css/all.css", "libs/css/academicons.min.css"]
 ---
-class: title-slide
+class: title-slide-2
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -28,10 +28,11 @@ library(magick)
 .row[
 .col-7[
 .title[
-# Hello, R Markdown!
+# Practical R Markdown
 ]
 .subtitle[
 ## Day 2: Applications
+### Project TIER Faculty Development Workshop
 ]
 .author[
 ### Ulrik Lyngs <br> [ulriklyngs.com](https://ulriklyngs.com) <br> [<i class="fab fa-github"></i>](https://github.com/ulyngs) [<i class="fab fa-twitter"></i>](https://twitter.com/ulyngs)[<i class="ai ai-google-scholar"></i>](https://scholar.google.co.uk/citations?user=e8XDAzcAAAAJ&hl=en)
@@ -100,4 +101,4 @@ class: inverse, middle
 ---
 
 # For working with Word and Powerpoint
-- The [`officer`](https://davidgohel.github.io/officer/) package - this one is about reading **.docx** and **.pptx** into R as an R object, manipulate it, and then save it again
+- The [`officer`](https://davidgohel.github.io/officer/) package - allows you to read **.docx** and **.pptx** files into R and as R objects, manipulate them, and then save out the modified version back to disk

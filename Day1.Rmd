@@ -33,6 +33,7 @@ library(reticulate)
 ]
 .subtitle[
 ## Day 1: Introduction
+### Project TIER Faculty Development Workshop
 ]
 .author[
 ### Ulrik Lyngs <br> [ulriklyngs.com](https://ulriklyngs.com) <br> [<i class="fab fa-github"></i>](https://github.com/ulyngs) [<i class="fab fa-twitter"></i>](https://twitter.com/ulyngs)[<i class="ai ai-google-scholar"></i>](https://scholar.google.co.uk/citations?user=e8XDAzcAAAAJ&hl=en)
@@ -58,44 +59,62 @@ knitr::include_graphics("figures/rmarkdown.png")
 ---
 <iframe width="1300" height="600" src="https://www.youtube.com/embed/s3JldKoA0zw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ---
+class: center, middle, inverse
+
 # Who am I?
 
+---
 .pull-left[
 ## Personal
-- Cognitive psychologist-turned-computer scientist
 - 3rd year DPhil student, [Human Centred Computing Group](https://www.cs.ox.ac.uk/research/HCC/)
-- Researching attention and self-regulation in relation to digital device use
+- Cognitive psychologist-turned-computer scientist
+- Research: attention and self-control in relation to digital device use
 ]
-
+--
 .pull-right[
-## R Markdown enthusiast
-#### Packages for paper and thesis writing with R markdown
-- ACM CHI proceedings format
-
-https://github.com/ulyngs/oxforddown
+## R Markdown nerd
+**Packages for paper and thesis writing with R markdown**
+- ACM CHI conference - [proceedings](https://github.com/ulyngs/chi-proc-rmd-template) and [extended abstracts](https://github.com/ulyngs/chi-ea-rmd-template) format
+- Example paper here: [Self-Control in Cyberspace: Applying Dual Systems Theory to Self-Control Tools](https://osf.io/zyj4h/) 
+- [`oxforddown`](https://github.com/ulyngs/oxforddown) template for Oxford University thesis writing
 ]
-
-
+--
+.pull-right[
+**Blogging (in and about R Markdown)**
+- [How to adapt journals' LaTeX templates for use with R Markdown](https://ulyngs.github.io/blog/posts/2018-10-28-how-to-write-acm-articles-with-r-markdown/)
+- [How to create custom chunk options](https://ulyngs.github.io/blog/posts/2019-02-01-how-to-create-your-own-chunk-options-in-r-markdown/)
+- [Advanced customisation with pandoc filters](https://ulyngs.github.io/blog/posts/2019-02-19-how-to-use-pandoc-filters-for-advanced-customisation-of-your-r-markdown-document/)
+]
 
 ---
+class: inverse, center, middle
 
 # Plan
 
+---
+class: middle
 .pull-left[
-### Day 1
-- R Markdown basics
-- Dynamic report writing
+## Day 1: Fundamentals
+.large[
+- Why R Markdown?
+- Basic syntax: Markdown & code
+- Final pieces: Cross-referencing, citations, captions
+]
 ]
 
+--
 .pull-right[
-### Day 2
+## Day 2: Applications
+.large[
 - Output formats
-- Workflows, collaboration, and teaching
+- Workflows, collaboration & teaching tools
 - Putting it all together
+
+]
 ]
 
 ---
-class: center, middle
+class: center, middle, inverse
 
 # R Markdown basics
 
@@ -125,7 +144,7 @@ class: center, middle
 ]
 
 .pull-right[
-```{r, echo=FALSE}
+```{r, out.width="95%"}
 knitr::include_graphics("figures/notebook-demo.png")
 ```
 
@@ -151,12 +170,7 @@ knitr::include_graphics("figures/plain-text.png")
 ]
 
 --
-.pull-right[
-```{r, echo=FALSE}
-knitr::include_graphics("figures/too-old.png")
-```
-
-]
+.on-top-right[![](figures/too-old.png)]
 
 ---
 # Wouldn't it be great if...
@@ -175,6 +189,7 @@ knitr::include_graphics("figures/too-old.png")
 #  image_write("figures/cropped.png", format = "png")
 knitr::include_graphics("figures/cropped.png")
 ```
+
 *Markdown*
 ]
 
@@ -398,6 +413,7 @@ class: center, middle
 # Basic syntax
 
 ---
+class: syntax-slide
 
 .pull-left[
   ### This...
@@ -453,7 +469,7 @@ class: center, middle
 ]
 
 ---
-
+class: syntax-slide 
 .pull-left[
   ### This...
   
@@ -508,6 +524,8 @@ class: center, middle
 ]
 
 ---
+class: practice-slide
+
 .center[
 # Time for practice!
 ]
@@ -576,6 +594,7 @@ class: center, middle
 # Code
 
 ---
+class: small-font
 # Code chunks
 
 ![](figures/chunk-parts.png)
@@ -654,6 +673,7 @@ A ggplot of cars' speed and stopping distance
 
 
 ---
+class: small-font
 ### Including tables
 
 ````markdown
@@ -685,31 +705,41 @@ cars %>%
 ---
 # Inline code
 
+--
 Inside your text you can write code using the syntax <span>&#96;</span>r code here&#96;.
 
+
+--
 For example, <span>&#96;</span>r 4 + 4&#96; would output `r 4 + 4` in your text.
 
+--
 ```{r, echo = TRUE}
-diamonds
+print(diamonds, n = 5)
 
 num_diamonds <- nrow(diamonds)
 
 ```
 
+--
 .pull-left[
 There are <span>&#96;</span>r num_diamonds&#96; rows in the `diamonds` dataset.
 ]
 
+--
 .pull-right[
 There are `r num_diamonds` rows in the `diamonds` dataset.
 ]
 ---
 # Inline code with python
 
+--
 [At the moment](https://stackoverflow.com/questions/47818461/is-there-a-way-in-knitr-to-evaluate-inline-code-chunks-of-other-languages), syntax like <span>&#96;</span>python code here&#96; is not valid.
 
+
+--
 However, you can use the [`reticulate`](https://rstudio.github.io/reticulate/articles/r_markdown.html) package to insert variables from python chunks into your output.
 
+--
 ````markdown
 `r ''````{python}
 my_number = 4 + 8
@@ -724,7 +754,7 @@ my_number = 4 + 8
 print(my_number)
 ```
 
-
+--
 ````markdown
 `r ''````{r}
 library(reticulate)
@@ -738,11 +768,53 @@ py$my_number
 py$my_number
 ```
 
+--
 Inline you can then refer to this python variable with <span>&#96;</span>r py$my_number&#96; - `my_number` is `r py$my_number`.
 
 
 ---
 
+.center[
+# Time for practice!
+]
+
+.row[
+
+.col-4[
+## Beginner
+]
+.col-4[
+## Intermediate
+]
+.col-4[
+## Advanced
+]
+
+]
+
+--
+.row[
+
+.col-4[
+In a new R Markdown document, use code chunks to
+- include an image with `knitr::include_graphics`
+- include a plot (e.g. with `plot(pressure)`)
+- include a table (using the `kable` function)
+- report a calculation inline
+]
+  
+.col-4[
+- try resizing plots with `out.width` and `fig.width` - what's the difference?
+- how do you set `knitr`'s global options to hide code by default? 
+- what other options are available to control if a code block is executed and what results are inserted in the finished report? (Hint: see [R for Data Science, 27.4.2](https://r4ds.had.co.nz/r-markdown.html))
+]
+
+.col-4[
+- what's the use of `cache = TRUE`? How does it relate to the `dependson` chunk option?
+- how might you create new chunk options, if the ones provided by `knitr` are not sufficient?
+]
+
+]
 
 ---
 background-image: url("figures/notebook-demo.png")
