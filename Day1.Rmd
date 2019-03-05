@@ -20,7 +20,7 @@ output:
 class: title-slide
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, fig.path = "figures/")
 library(tidyverse)
 library(magick)
 library(reticulate)
