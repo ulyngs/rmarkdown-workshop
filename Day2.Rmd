@@ -75,26 +75,289 @@ class: middle
 ]
 ]
 
---
 .pull-right[
-## Day 2: Applications
-.large[
-- Templates and output formats
-- Workflows, collaboration & teaching tools
-- Putting it all together
 
 ]
-]
 
-???
-Say something about the different levels we have and how we'll handle this
 
 ---
 
-# Templates and output formats
+class: middle
 
-- templates in terms of making R Markdown formats for your students
-- templates in terms of trying to work with a publisher's article templates
+.center[
+# Plan
+]
+
+
+.pull-left.grey[
+## Day 1: Fundamentals
+.large[
+- Why R Markdown?
+- Basic syntax: Markdown & code
+- Final pieces: Citations & cross-referencing
+]
+]
+
+.pull-right[
+## Day 2: Applications
+.large[
+- Customising your output
+- Workflows, collaboration & teaching
+- Putting it all together
+]
+]
+
+---
+class: center, middle, inverse
+
+# Customising your output
+
+???
+we'll look at this in two ways
+- using YAML options to directly customise the output (you might use this for yourself or you might want to create a template that students should download and fill in)
+- adopting a publisher's LaTeX (or Word) template for use with R Markdown
+
+---
+## Simple customisation via YAML header
+
+- Many simple customisation options are easily set directly in the YAML header
+- The options available depend on the output format (HTML, PDF, etc.), see [bookdown.org](https://bookdown.org/yihui/rmarkdown/documents.html)
+
+--
+- Let's have a look at some common options...
+
+
+---
+### Table of contents
+
+.pull-left[
+```yaml
+---
+title: "Output customisation"
+output: 
+  bookdown::html_document2:
+    toc: true
+---
+```
+]
+
+--
+.pull-right[
+```{r}
+knitr::include_graphics("figures/html_toc.png")
+```
+]
+
+
+---
+### Table of contents
+
+.pull-left[
+```yaml
+---
+title: "Output customisation"
+output: 
+  bookdown::html_document2:
+    toc: true
+    toc_float: true
+---
+```
+]
+
+--
+.pull-right[
+```{r}
+knitr::include_graphics("figures/html_toc_float.png")
+```
+]
+
+---
+### Table of contents
+
+.pull-left[
+```yaml
+---
+title: "Output customisation"
+output: 
+*  bookdown::pdf_document2:
+    toc: true
+---
+```
+]
+
+--
+.pull-right[
+```{r}
+knitr::include_graphics("figures/pdf_toc.png")
+```
+]
+
+---
+### Table of contents
+
+.pull-left[
+```yaml
+---
+title: "Output customisation"
+output: 
+*  bookdown::word_document2:
+    toc: true
+---
+```
+]
+
+--
+.pull-right[
+```{r}
+knitr::include_graphics("figures/word_toc.png")
+```
+]
+
+---
+### Putting content in tabs in HTML output
+- Add `{.tabset}` after a header to make all sub-headers of the header appear within tabs instead of as standalone sections.
+
+
+--
+.pull-left[
+
+For example:
+
+```markdown
+# Test header
+
+## Including tables
+
+(tab content)
+
+## Including plots
+
+(tab content)
+
+```
+
+]
+
+.pull-right[
+```{r, out.width="80%"}
+knitr::include_graphics("figures/html_tabset.png")
+```
+
+]
+
+---
+## Appearance and style
+- For HTML, you can use `theme` or a custom **.css** style sheet
+- `theme` options (see them at [bootswatch.com](https://bootswatch.com/)) : *“cerulean”, “journal”, “flatly”, “darkly”, “readable”, “spacelab”, “united”, “cosmo”, “lumen”, “paper”, “sandstone”, “simplex”, “yeti”*
+
+.pull-left[
+For example:
+```yaml
+---
+title: "Output customisation"
+output: 
+  bookdown::html_document2:
+    toc: true
+    toc_float: true
+    theme: darkly
+---
+```
+]
+
+.pull-right[
+```{r, out.width="75%"}
+knitr::include_graphics("figures/html_theme.png")
+```
+
+]
+
+---
+## Appearance and style
+- For fine-grained control, you can also supply a specific template:
+
+```yaml
+---
+title: "Output customisation"
+output: 
+  bookdown::html_document2:
+*    template: my_template.html
+  bookdown::pdf_document2:
+*    template: my_template.tex
+  bookdown::word_document2:
+*    reference_docx: my-styles.docx
+---
+```
+
+--
+- For more on Word templates, watch this short video ([vimeo.com/110804387](https://vimeo.com/110804387)), or read this article ([rmarkdown.rstudio.com/articles_docx.html](https://rmarkdown.rstudio.com/articles_docx.html))
+- For more on HTML templates, see the [pandoc documentation](http://pandoc.org/MANUAL.html#templates) and/or have a look at the [default HTML template](https://github.com/jgm/pandoc-templates/blob/master/default.html5)
+
+---
+## Using LaTeX templates with R Markdown
+- The [`rticles`](https://github.com/rstudio/rticles) package collecta a wide range of ready-made templates for article submissions to a wide range of journals
+- At the moment, however, many of the templates are not well documented and it can be difficult to understand what's going on under the hood
+- It's useful to understand a little bit of how this works, if you find yourself needing to submit something formatted with LaTeX but wish to write in R Markdown
+- Let's have a look at the [PLOS LaTeX template](http://www.latextemplates.com/template/public-library-of-science-plos)
+
+
+---
+class: practice-slide
+
+.center[
+# Time for practice!
+]
+
+.row[
+
+.col-4[
+## Beginner
+]
+.col-4[
+## Intermediate
+]
+.col-4[
+## Advanced
+]
+
+]
+
+--
+.row[
+
+.col-4.beginner[
+*Create a new R Markdown document* <br>
+(File > New File > R Markdown...)
+
+*Knit to HTML, PDF, Word*
+
+*Tweak the content*
+- add your name and today's date to YAML header
+- add a paragraph, containing a header, **bold**, and *italics*
+- knit to output of your choice
+- what creates linebreaks and new paragraphs?
+]
+  
+.col-4.intermediate[
+In a new R Markdown document, write a paragraph that contains
+- a hyperlink
+- a blockquote
+- a comment
+- some math
+
+Skim through the references available from within RStudio:
+- Help > Cheatsheets > R Markdown Cheat Sheet
+- Help > Cheatsheet > R Markdown Reference Guide
+- Help > Markdown Quick Reference
+]
+
+.col-4.advanced[
+- when making footnotes, what are the two ways you can place the footnote text?
+- how do you get literal backticks in your output?
+- what's the difference between outputting to `rmarkdown::pdf_document` and `bookdown::pdf_document2`?
+
+]
+
+]
 
 ---
 
