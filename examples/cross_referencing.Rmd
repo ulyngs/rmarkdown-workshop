@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Another test header
 ### A sub test header
 
-Now, let me refer to section \@ref(section-references).
+Let me refer to section \@ref(section-references). In other words, I mean [this section here](#section-references).
 
 I notice that under section  \@ref(another-test-header) we have a sub-subsection, namely section \@ref(a-sub-test-header).
 
