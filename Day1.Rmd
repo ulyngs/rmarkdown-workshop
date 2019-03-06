@@ -56,7 +56,9 @@ knitr::include_graphics("figures/rmarkdown.png")
 
 ]
 
-??? who am I?
+???
+
+- who am I?
 - 3rd year DPhil student, [Human Centred Computing Group](https://www.cs.ox.ac.uk/research/HCC/)
 - Cognitive psychologist-turned-computer scientist
 - fan of open science, think R Markdown's got stuff going for it
@@ -114,7 +116,8 @@ class: middle
 ]
 
 ???
-Say something about the different levels we have and how we'll handle this
+- the different levels we have and how we'll handle this
+- for the practicals, team up in pairs
 
 ---
 class: center, middle, inverse
@@ -929,7 +932,7 @@ For an easy way to insert citations, try the [`citr`](https://github.com/crsh/ci
 ]
 
 ---
-# [Cross-referencing](https://bookdown.org/yihui/bookdown/cross-references.html)
+# Cross-referencing
 - The `bookdown` package adds capability to do cross-referencing. We can refer to **sections** within our document, to **figures** and **tables**, and even pieces of **text**.
 
 --
@@ -942,7 +945,8 @@ Whenever we use a header (with a \#), a label is automatically assigned, namely 
 
 
 --
-To make a cross-reference, use the syntax `\@ref(label)`. <br> **So we can refer to that section above with `\@ref(my-section)`.**
+To make a cross-reference, use the syntax `\@ref(label)`. <br> **So we can refer to that number of the section above with `\@ref(my-section)`.** <br>
+You can also use hyperlink syntax with \# before the label: `[see this section](#my-section)`
 
 
 --
@@ -950,7 +954,7 @@ You can add your own labels to headers by adding `{\#label}` after a header, e.g
 
 
 --
-See examples here: [Rmd file](examples/cross_referencing.Rmd) and [HTML output](examples/cross_referencing.html).
+Examples here: [Rmd file](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/cross_referencing.Rmd) and [HTML output](examples/cross_referencing.html).
 
 ---
 ## Figure and table references
@@ -974,7 +978,7 @@ knitr::include_graphics("figures/captain.jpeg")
 - Recall that the first chunk option after the language is the label (we could also be explicit with `label=captain`).
 - To refer to figures (plots and images) use the syntax `\@ref(fig:label)`
 - So we'd refer to this image with `\@ref(fig:captain)`
-- See examples here: [Rmd](examples/cross_referencing.Rmd), [HTML](examples/cross-referencing.html)
+- Again, examples here: [Rmd](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/cross_referencing.Rmd), [HTML](examples/cross-referencing.html)
 ]
 
 ---
@@ -999,7 +1003,7 @@ knitr::kable(cars[1:5,],
 .pull-right[
 - To refer to tables use the syntax `\@ref(tab:label)`
 - So we'd refer to this image with `\@ref(tab:cars)`
-- See examples here: [Rmd](examples/cross_referencing.Rmd), [HTML](examples/cross-referencing.html)
+- ...examples here: [Rmd](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/cross_referencing.Rmd), [HTML](examples/cross-referencing.html)
 ]
 ---
 
