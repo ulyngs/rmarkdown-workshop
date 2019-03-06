@@ -209,7 +209,7 @@ output:
 For example:
 
 ```markdown
-# Test header
+# Test header {.tabset}
 
 ## Including tables
 
@@ -231,8 +231,11 @@ For example:
 ---
 ## Appearance and style
 - For HTML, you can use `theme` or a custom **.css** style sheet
+
+--
 - `theme` options (see them at [bootswatch.com](https://bootswatch.com/)) : *“cerulean”, “journal”, “flatly”, “darkly”, “readable”, “spacelab”, “united”, “cosmo”, “lumen”, “paper”, “sandstone”, “simplex”, “yeti”*
 
+--
 .pull-left[
 For example:
 ```yaml
@@ -270,14 +273,22 @@ output:
 ```
 
 --
-- For more on Word templates, watch this short video ([vimeo.com/110804387](https://vimeo.com/110804387)), or read this article ([rmarkdown.rstudio.com/articles_docx.html](https://rmarkdown.rstudio.com/articles_docx.html))
 - For more on HTML templates, see the [pandoc documentation](http://pandoc.org/MANUAL.html#templates) and/or have a look at the [default HTML template](https://github.com/jgm/pandoc-templates/blob/master/default.html5)
+- For more on Word templates, watch this short video ([vimeo.com/110804387](https://vimeo.com/110804387)), or read this article ([rmarkdown.rstudio.com/articles_docx.html](https://rmarkdown.rstudio.com/articles_docx.html))
 
 ---
 ## Using LaTeX templates with R Markdown
+
+--
 - The [`rticles`](https://github.com/rstudio/rticles) package collecta a wide range of ready-made templates for article submissions to a wide range of journals
+
+--
 - At the moment, however, many of the templates are not well documented and it can be difficult to understand what's going on under the hood
+
+--
 - It's useful to understand a little bit of how this works, if you find yourself needing to submit something formatted with LaTeX but wish to write in R Markdown
+
+--
 - Let's have a look at the [PLOS LaTeX template](http://www.latextemplates.com/template/public-library-of-science-plos)
 
 
