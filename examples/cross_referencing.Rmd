@@ -42,7 +42,7 @@ Like images (generated plots are auomatically saved as images before they're inc
 plot(pressure)
 ```
 
-In Figures \@ref(fig:pressure) we see a plot of volcanic pressure.
+In Figure \@ref(fig:pressure) we see a plot of volcanic pressure.
 
 ## Tables
 Refer to the chunk label with the syntax `\@ref(tab:label)`.
