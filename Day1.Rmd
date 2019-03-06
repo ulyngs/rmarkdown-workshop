@@ -33,7 +33,7 @@ library(reticulate)
 ]
 .subtitle[
 ## Day 1: Introduction
-### Project TIER Faculty Development Workshop
+### Project TIER Faculty Development Workshop, 12-13 March 2019
 ]
 .author[
 ### Ulrik Lyngs <br> [ulriklyngs.com](https://ulriklyngs.com) <br> [<i class="fab fa-github"></i>](https://github.com/ulyngs) [<i class="fab fa-twitter"></i>](https://twitter.com/ulyngs)[<i class="ai ai-google-scholar"></i>](https://scholar.google.co.uk/citations?user=e8XDAzcAAAAJ&hl=en)
@@ -52,6 +52,10 @@ library(reticulate)
 knitr::include_graphics("figures/rmarkdown.png")
 ```
 ]
+
+Slides:<br> [ulyngs.github.io/rmarkdown-workshop-2019](https://ulyngs.github.io/rmarkdown-workshop-2019/)
+
+
 ]
 
 ]
@@ -848,8 +852,8 @@ class: center, middle, inverse
 
 --
 <ol>
-<li> Put references in a plain text file with the extension **.bib**, in **BibTex** format (most reference managers can do this - [Zotero](https://www.zotero.org) works best, I use [Mendeley](https://www.mendeley.com)).<sup>1</sup> <br>
-Note that 'Shea2014' in the highlighted section is the **citation identifier**.
+<li> Put references in a plain text file with the extension **.bib**, in **BibTex** format (most reference managers can do this - [Zotero](https://www.zotero.org) works best, I use [Mendeley](https://www.mendeley.com)).<sup>1</sup>
+<br>In the highlighed section, 'Shea2014' is the **citation identifier**.
 </ol>
 ```bibtex
 *@article{Shea2014,
@@ -993,7 +997,7 @@ knitr::kable(cars[1:5,],
 
 ```{r cars}
 knitr::kable(cars[1:5,],
-            caption="Some stopping distances for cars")
+            caption="Stopping cars")
 ```
 
 ]

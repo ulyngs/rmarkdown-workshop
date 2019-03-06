@@ -17,7 +17,7 @@ output:
       beforeInit: ["https://platform.twitter.com/widgets.js", "libs/cols_macro.js"]
     css: ["libs/lyngs_style.css", default, rutgers-fonts, libs/cols.css, "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap-grid.min.css", "https://use.fontawesome.com/releases/v5.7.2/css/all.css", "libs/css/academicons.min.css"]
 ---
-class: title-slide-2
+class: title-slide
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -28,11 +28,11 @@ library(magick)
 .row[
 .col-7[
 .title[
-# Practical R Markdown
+# Hello, R Markdown!
 ]
 .subtitle[
 ## Day 2: Applications
-### Project TIER Faculty Development Workshop
+### Project TIER Faculty Development Workshop, 12-13 March 2019
 ]
 .author[
 ### Ulrik Lyngs <br> [ulriklyngs.com](https://ulriklyngs.com) <br> [<i class="fab fa-github"></i>](https://github.com/ulyngs) [<i class="fab fa-twitter"></i>](https://twitter.com/ulyngs)[<i class="ai ai-google-scholar"></i>](https://scholar.google.co.uk/citations?user=e8XDAzcAAAAJ&hl=en)
@@ -51,34 +51,59 @@ library(magick)
 knitr::include_graphics("figures/rmarkdown.png")
 ```
 ]
+
+Slides:<br> [ulyngs.github.io/rmarkdown-workshop-2019](https://ulyngs.github.io/rmarkdown-workshop-2019/)
+
 ]
 
 ]
 
 ---
+class: middle
 
+.center[
 # Plan
+]
+
 
 .pull-left[
-### Day 1
-- R Markdown basics
-- Dynamic report writing
+## Day 1: Fundamentals
+.large[
+- Why R Markdown?
+- Basic syntax: Markdown & code
+- Final pieces: Citations & cross-referencing
+]
 ]
 
+--
 .pull-right[
-### Day 2
-- Output formats
-- Workflows, collaboration, teaching
+## Day 2: Applications
+.large[
+- Templates and output formats
+- Workflows, collaboration & teaching tools
 - Putting it all together
+
 ]
+]
+
+???
+Say something about the different levels we have and how we'll handle this
 
 ---
 
-# Output formats
+# Templates and output formats
+
+- templates in terms of making R Markdown formats for your students
+- templates in terms of trying to work with a publisher's article templates
 
 ---
 
 # Workflows, collaboration, teaching
+
+- structure this in accordance with what you put in the keynote slides
+
+???
+- have something about the 
 
 ---
 class: inverse, middle
@@ -102,3 +127,51 @@ class: inverse, middle
 
 # For working with Word and Powerpoint
 - The [`officer`](https://davidgohel.github.io/officer/) package - allows you to read **.docx** and **.pptx** files into R and as R objects, manipulate them, and then save out the modified version back to disk
+
+
+---
+
+.center[
+# Final practical!
+]
+
+.row[
+
+.col-4[
+## Beginner
+]
+.col-4[
+## Intermediate
+]
+.col-4[
+## Advanced
+]
+
+]
+
+--
+.row[
+
+.col-4.beginner[
+1. Make a report from scratch, using the **my-example-document** (this one will have the data computed in there)
+- give it your name, today's date, report the main results, cite something, make a cross reference - output to `bookdown::pdf_document2` and `bookdown::html_document2`
+]
+  
+.col-4.intermediate[
+1. Make your own template for a teaching situation relevan to your
+2. Figure out how the Open Science Framework R interface works, and suggest how it might be used in teaching
+
+]
+
+.col-4.advanced[
+1. Make a start on adjusting your favorite journal's LaTeX template for use with R Markdown
+2. Make a fictive report (e.g. about the `diamonds` dataset from the `tidyverse` package and use parameters to make reports for each class of diamonds
+3. Look into RStudio Connect and suggest how it might be used in your teaching
+]
+]
+
+---
+
+
+# Resources / learn more
+
