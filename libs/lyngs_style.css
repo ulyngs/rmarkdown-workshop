@@ -30,6 +30,11 @@ h2 {
   -webkit-margin-after: 0.1em !important;  
 }
 
+h3 {
+  margin-bottom: 0;
+  padding: bottom: 0;
+}
+
 .logo {
     transform: rotate(15deg);
     margin-left: 15%;
