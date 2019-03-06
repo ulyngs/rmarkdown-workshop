@@ -282,6 +282,198 @@ output:
 
 
 ---
+## Using LaTeX templates with R Markdown
+.pull-left[
+```yaml
+---
+output: 
+  bookdown::pdf_document2:
+    template: plos-latex-template/plos_latex_template.tex
+---
+```
+]
+
+.pull-right[
+&lt;img src="figures/template_error.png" width="551" /&gt;
+]
+
+---
+class: center, middle, inverse
+
+![](figures/rmarkdownflow.png)
+
+---
+## **examples/plos-latex-template/plos_latex_template.tex**
+- A dollar sign has special meaning for `pandoc` - when it creates the output, it looks for stuff wrapped in dollar signs and thinks that it's meant to plug in some stuff from your **.Rmd** file
+- In `pandoc` we escape an `$` with another `$`
+
+--
+.pull-left[
+If we take a look at line 57 in **plos_latex_template.tex** we see this:
+```latex
+% For inline equations, please be sure to include all portions of an equation in the math environment.  For example, x$^2$ is incorrect; this should be formatted as $x^2$ (or $\mathrm{x}^2$ if the romanized font is desired).
+%
+```
+]
+
+
+--
+.pull-right[
+- We can change that to this:
+```latex
+% For inline equations, please be sure to include all portions of an equation in the math environment.  For example, x$$^2$$ is incorrect; this should be formatted as $$x^2$$ (or $$\mathrm{x}^2$$ if the romanized font is desired).
+%
+```
+]
+
+
+---
+## **examples/plos-latex-template/plos_latex_template.tex**
+- A dollar sign has special meaning for `pandoc` - when it creates the output, it looks for stuff wrapped in dollar signs and thinks that it's meant to plug in some stuff from your **.Rmd** file
+- In `pandoc` we escape an `$` with another `$`
+
+--
+.pull-left[
+If we take a look at line 57 in **plos_latex_template.tex** we see this:
+```latex
+% For inline equations, please be sure to include all portions of an equation in the math environment.  For example, x$^2$ is incorrect; this should be formatted as $x^2$ (or $\mathrm{x}^2$ if the romanized font is desired).
+%
+```
+]
+
+
+--
+.pull-right[
+- And now we get this:
+
+&lt;img src="figures/template_error2.png" width="528" /&gt;
+]
+
+---
+## **examples/plos-latex-template/plos_latex_template.tex**
+- Fix this throughout (in lines 57, 59, 278, 279, 280) and we get what we expect:
+
+--
+.pull-left[
+
+```yaml
+---
+output: 
+  bookdown::pdf_document2:
+    template: plos-latex-template/plos_latex_template_adapted.tex
+---
+```
+
+&lt;img src="figures/template_escapes.png" width="1104" /&gt;
+
+
+]
+
+
+--
+.pull-right[
+
+&lt;img src="figures/template_compiled.png" width="1340" /&gt;
+]
+
+---
+## Plug in information from our **.Rmd** file into the template
+- Wrap keys from the YAML header in dollar signs to get `pandoc` to insert their value into the template, e.g. `$author`
+- The content after the YAML header we refer to with `$body$`
+
+--
+.pull-left[
+```latex
+\textbf\newline{Title of submission to PLOS journals}
+\\
+Name1 Surname\textsuperscript{1,2\Yinyang},
+Name2 Surname\textsuperscript{2\Yinyang},
+Name3 Surname\textsuperscript{2,3\textcurrency},
+Name4 Surname\textsuperscript{2},
+Name5 Surname\textsuperscript{2\ddag},
+Name6 Surname\textsuperscript{2\ddag},
+Name7 Surname\textsuperscript{1,2,3*},
+with the Lorem Ipsum Consortium\textsuperscript{\textpilcrow}
+\\
+\textbf{1} Affiliation Dept/Program/Center, Institution Name, City, State, Country
+\\
+\textbf{2} Affiliation Dept/Program/Center, Institution Name, City, State, Country
+```
+]
+
+.pull-right[
+```latex
+*\textbf\newline{$title$}
+\\
+*$author.name$\textsuperscript{1,2\Yinyang},
+Name2 Surname\textsuperscript{2\Yinyang},
+Name3 Surname\textsuperscript{2,3\textcurrency},
+Name4 Surname\textsuperscript{2},
+Name5 Surname\textsuperscript{2\ddag},
+Name6 Surname\textsuperscript{2\ddag},
+Name7 Surname\textsuperscript{1,2,3*},
+with the Lorem Ipsum Consortium\textsuperscript{\textpilcrow}
+\\
+*\textbf{1} $author.affiliation$, $author.city$, $if(author.state)$$author.state$,$endif$ $author.country$
+\\
+\textbf{2} Affiliation Dept/Program/Center, Institution Name, City, State, Country
+```
+]
+
+
+---
+## Plug in information from our **.Rmd** file into the template
+
+.pull-left[
+```latex
+\section*{Abstract}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
+```
+
+```latex
+\section*{Introduction}
+Lorem ipsum dolor sit...
+```
+
+]
+
+.pull-right[
+```latex
+\section*{Abstract}
+$abstract$
+```
+
+```latex
+$body$
+```
+]
+
+---
+## Plug in information from our **.Rmd** file into the template
+
+.pull-left[
+```yaml
+---
+title: This Is the Greatest and Best Paper in the World (Tribute)
+abstract: This is the best abstract in the world
+author:
+  name: Ulrik Lyngs
+  affiliation: Department of Computer Science, University of Oxford
+  city: Oxford
+  country: United Kingdom
+output: 
+  bookdown::pdf_document2:
+    template: plos-latex-template/plos_latex_template_adapted.tex
+---
+```
+]
+
+.pull-right[
+&lt;img src="figures/template_plos.png" width="80%" /&gt;
+
+]
+
+---
 class: practice-slide
 
 .center[
