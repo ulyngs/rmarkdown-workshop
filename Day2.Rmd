@@ -15,6 +15,8 @@ output:
       titleSlideClass: ["middle", "center"]
       ratio: "16:9"
       beforeInit: ["https://platform.twitter.com/widgets.js", "libs/cols_macro.js"]
+      navigation:
+        scroll: false # disable slide transitions by scrolling
     css: ["libs/lyngs_style.css", default, rutgers-fonts, libs/cols.css, "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap-grid.min.css", "https://use.fontawesome.com/releases/v5.7.2/css/all.css", "libs/css/academicons.min.css"]
 ---
 class: title-slide
@@ -120,7 +122,9 @@ we'll look at this in two ways
 ---
 ## Simple customisation via YAML header
 
-- Many simple customisation options are easily set directly in the YAML header
+- Many simple customisation options are easily set in the YAML header
+
+--
 - The options available depend on the output format (HTML, PDF, etc.), see [bookdown.org](https://bookdown.org/yihui/rmarkdown/documents.html)
 
 --
@@ -136,7 +140,7 @@ we'll look at this in two ways
 title: "Output customisation"
 output: 
   bookdown::html_document2:
-    toc: true
+*    toc: true
 ---
 ```
 ]
@@ -238,6 +242,7 @@ For example:
 
 ]
 
+--
 .pull-right[
 ```{r, out.width="80%"}
 include_graphics("figures/html_tabset.png")
@@ -251,6 +256,7 @@ include_graphics("figures/html_tabset.png")
 
 --
 - `theme` options (see them at [bootswatch.com](https://bootswatch.com/)) : *“cerulean”, “journal”, “flatly”, “darkly”, “readable”, “spacelab”, “united”, “cosmo”, “lumen”, “paper”, “sandstone”, “simplex”, “yeti”*
+
 
 --
 .pull-left[
@@ -267,6 +273,7 @@ output:
 ```
 ]
 
+
 .pull-right[
 ```{r, out.width="75%"}
 include_graphics("figures/html_theme.png")
@@ -276,7 +283,7 @@ include_graphics("figures/html_theme.png")
 
 ---
 ## Appearance and style
-- For fine-grained control, you can also supply a specific template:
+- For fine-grained control, you can supply a template for pandoc to use for the output document:
 
 ```yaml
 ---
@@ -299,13 +306,13 @@ output:
 ## Using LaTeX templates with R Markdown
 
 --
-- The [`rticles`](https://github.com/rstudio/rticles) package collecta a wide range of ready-made templates for article submissions to a wide range of journals
+- The [`rticles`](https://github.com/rstudio/rticles) package contains a range of ready-made templates for submissions to a various journals
 
 --
-- At the moment, however, many of the templates are not well documented and it can be difficult to understand what's going on under the hood
+- At the moment, however, many of the templates are not well documented, and it can be difficult to understand what's going on under the hood
 
 --
-- It's useful to understand a little bit of how this works, if you find yourself needing to submit something formatted with LaTeX but wish to write in R Markdown
+- It's useful to understand a bit of how it works, for when you find yourself needing to submit something formatted with LaTeX but wish to write in R Markdown (the concept is similar for html templates)
 
 --
 - Let's have a look at the [PLOS LaTeX template](http://www.latextemplates.com/template/public-library-of-science-plos)
@@ -318,11 +325,13 @@ output:
 ---
 output: 
   bookdown::pdf_document2:
-    template: plos-latex-template/plos_latex_template.tex
+    template: plos_latex_template.tex
 ---
 ```
 ]
 
+
+--
 .pull-right[
 ```{r}
 include_graphics("figures/template_error.png")
@@ -335,48 +344,53 @@ class: center, middle, inverse
 ![](figures/rmarkdownflow.png)
 
 ---
-## **examples/plos-latex-template/plos_latex_template.tex**
-- A dollar sign has special meaning for `pandoc` - when it creates the output, it looks for stuff wrapped in dollar signs and thinks that it's meant to plug in some stuff from your **.Rmd** file
-- In `pandoc` we escape an `$` with another `$`
+## plos_latex_template.tex
+- A dollar sign has special meaning for `pandoc` - when it creates the output, it looks for stuff wrapped in dollar signs and assumes should plug in something from your **.Rmd** file
+
+--
+- In `pandoc`, a `$` is escaped with another `$`
+
 
 --
 .pull-left[
 If we take a look at line 57 in **plos_latex_template.tex** we see this:
 ```latex
-% For inline equations, please be sure to include all portions of an equation in the math environment.  For example, x$^2$ is incorrect; this should be formatted as $x^2$ (or $\mathrm{x}^2$ if the romanized font is desired).
-%
+% For example, x$^2$ is incorrect; 
+this should be formatted as $x^2$ 
+(or $\mathrm{x}^2$ if the romanized font is desired).
 ```
 ]
 
 
 --
 .pull-right[
-- We can change that to this:
+- We change to this:<br>
+<br>
+
 ```latex
-% For inline equations, please be sure to include all portions of an equation in the math environment.  For example, x$$^2$$ is incorrect; this should be formatted as $$x^2$$ (or $$\mathrm{x}^2$$ if the romanized font is desired).
-%
+% For example, x$$^2$$ is incorrect; 
+this should be formatted as $$x^2$$ 
+(or $$\mathrm{x}^2$$ if the romanized font is desired).
 ```
 ]
 
 
 ---
-## **examples/plos-latex-template/plos_latex_template.tex**
-- A dollar sign has special meaning for `pandoc` - when it creates the output, it looks for stuff wrapped in dollar signs and thinks that it's meant to plug in some stuff from your **.Rmd** file
-- In `pandoc` we escape an `$` with another `$`
+## plos_latex_template.tex
+- A dollar sign has special meaning for `pandoc` - when it creates the output, it looks for stuff wrapped in dollar signs and assumes should plug in something from your **.Rmd** file
+- In `pandoc`, a `$` is escaped with another `$`
 
---
 .pull-left[
 If we take a look at line 57 in **plos_latex_template.tex** we see this:
 ```latex
-% For inline equations, please be sure to include all portions of an equation in the math environment.  For example, x$^2$ is incorrect; this should be formatted as $x^2$ (or $\mathrm{x}^2$ if the romanized font is desired).
-%
+% For example, x$^2$ is incorrect; 
+this should be formatted as $x^2$ 
+(or $\mathrm{x}^2$ if the romanized font is desired).
 ```
 ]
 
-
---
 .pull-right[
-- And now we get this:
+- Now we get this - seems like we fixed the error, but that there's a few more:
 
 ```{r}
 include_graphics("figures/template_error2.png")
@@ -384,8 +398,9 @@ include_graphics("figures/template_error2.png")
 ]
 
 ---
-## **examples/plos-latex-template/plos_latex_template.tex**
-- Fix this throughout (in lines 57, 59, 278, 279, 280) and we get what we expect:
+## plos_latex_template.tex
+- Fix this throughout and we finally get what we'd expect:
+
 
 --
 .pull-left[
@@ -394,11 +409,11 @@ include_graphics("figures/template_error2.png")
 ---
 output: 
   bookdown::pdf_document2:
-    template: plos-latex-template/plos_latex_template_adapted.tex
+    template: plos_latex_template_adapted.tex
 ---
 ```
 
-```{r}
+```{r, out.width="90%", fig.align='center'}
 include_graphics("figures/template_escapes.png")
 ```
 
@@ -416,8 +431,11 @@ include_graphics("figures/template_compiled.png")
 
 ---
 ## Plug in information from our **.Rmd** file into the template
-- Wrap keys from the YAML header in dollar signs to get `pandoc` to insert their value into the template, e.g. `$author`
-- The content after the YAML header we refer to with `$body$`
+- Wrap variables from the YAML header in `$`'s to insert them in the template, e.g. `$author$`
+
+--
+- The content after the YAML header is referred to with `$body$`
+
 
 --
 .pull-left[
@@ -465,7 +483,7 @@ with the Lorem Ipsum Consortium\textsuperscript{\textpilcrow}
 .pull-left[
 ```latex
 \section*{Abstract}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
+Lorem ipsum dolor sit amet...
 ```
 
 ```latex
@@ -492,22 +510,26 @@ $body$
 .pull-left[
 ```yaml
 ---
-title: This Is the Greatest and Best Paper in the World (Tribute)
+title: |
+  This Is the Greatest and 
+  Best Paper in the World (Tribute)
 abstract: This is the best abstract in the world
 author:
   name: Ulrik Lyngs
-  affiliation: Department of Computer Science, University of Oxford
+  affiliation: |
+    Department of Computer Science, 
+    University of Oxford
   city: Oxford
   country: United Kingdom
 output: 
   bookdown::pdf_document2:
-    template: plos-latex-template/plos_latex_template_adapted.tex
+    template: plos_latex_template_adapted.tex
 ---
 ```
 ]
 
 .pull-right[
-```{r, out.width="80%"}
+```{r, out.width="88%"}
 include_graphics("figures/template_plos.png")
 ```
 
@@ -518,6 +540,7 @@ class: practice-slide
 
 .center[
 # Time for practice!
+Examples: Output customisation ([HTML](examples/output_customisation.html), [Rmd](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/output_customisation.Rmd)) ; Using LaTeX templates ([HTML](examples/using_latex_templates.html), [Rmd](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/using_latex_templates.Rmd))
 ]
 
 .row[
@@ -538,38 +561,22 @@ class: practice-slide
 .row[
 
 .col-4.beginner[
-*Create a new R Markdown document* <br>
-(File > New File > R Markdown...)
+1. Toggle table of contents on and off in two different output formats.
+2. Find out how to customise what level of headings to include in the table of contents
+3. Have a scroll through the range of output formats available in [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/html-document.html).
 
-*Knit to HTML, PDF, Word*
-
-*Tweak the content*
-- add your name and today's date to YAML header
-- add a paragraph, containing a header, **bold**, and *italics*
-- knit to output of your choice
-- what creates linebreaks and new paragraphs?
 ]
   
 .col-4.intermediate[
-In a new R Markdown document, write a paragraph that contains
-- a hyperlink
-- a blockquote
-- a comment
-- some math
-
-Skim through the references available from within RStudio:
-- Help > Cheatsheets > R Markdown Cheat Sheet
-- Help > Cheatsheet > R Markdown Reference Guide
-- Help > Markdown Quick Reference
+Have a look at the ['Output formats' section of *R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/html-document.html):
+1. Try to output to a HTML document where code is hidden but the user can choose to see it.
+2. Try to output as Word document using a `reference_docx`. Can you succesfully customise the header and body styles?
 ]
 
 .col-4.advanced[
-- when making footnotes, what are the two ways you can place the footnote text?
-- how do you get literal backticks in your output?
-- what's the difference between outputting to `rmarkdown::pdf_document` and `bookdown::pdf_document2`?
-
+1. How would you inspect whether R Markdown is doing what you think it does when you're customisting the output?
+2. Find a LaTeX template for submission to your favorite journal and have a quick stab at getting an **.Rmd** file to use it as a template
 ]
-
 ]
 
 ---
