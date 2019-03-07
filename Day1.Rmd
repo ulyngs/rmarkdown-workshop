@@ -949,17 +949,32 @@ For an easy way to insert citations, try the [`citr`](https://github.com/crsh/ci
 
 
 --
+```yaml
+---
+title: "Cross-referencing test"
+output: bookdown::html_document2
+---
+```
+
+---
 ### Section references
-Whenever we use a header (with a \#), a label is automatically assigned, namely the header name in lower-caps separated by dashes: <br> **So a section `# My section` is automatically given the label `my-section`.**
+- Headers are automatically assigned a reference label, which is the text in lower caps separated by dashes
+  - For example, the label for `# My header` is `my-header`
 
 
 --
-To make a cross-reference, use the syntax `\@ref(label)`. <br> **So we can refer to that number of the section above with `\@ref(my-section)`.** <br>
-You can also use hyperlink syntax with \# before the label: `[see this section](#my-section)`
+- The cross-reference syntax is `\@ref(label)` 
+  - So `# My header` can be referenced with `\@ref(my-section)`
+  - .Rmd: `See section \@ref(my-header)` -> output: 'See section 1'
+  
+
+--
+- You can also use hyperlink syntax and add \# before the label
+  - .Rmd: `[see this section](#my-header)` -> output: '[see this section](#section-references)'
 
 
 --
-You can add your own labels to headers by adding `{\#label}` after a header, e.g. `\#My section {\#my-label}`.
+- Create custom labels by adding `{\#label}` after a header, e.g. `# My section {#my-label}`.
 
 
 --
