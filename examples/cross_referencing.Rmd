@@ -2,8 +2,7 @@
 title: "Cross-referencing test"
 output: 
   bookdown::html_document2: default
-  bookdown::pdf_document2:
-    keep_tex: true
+  bookdown::pdf_document2: default
 ---
 
 ```{r setup, include=FALSE}
