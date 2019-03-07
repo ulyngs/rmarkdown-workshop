@@ -25,6 +25,7 @@ class: title-slide
 knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
 library(knitr)
+library(DiagrammeR)
 ```
 
 .row[
@@ -163,7 +164,7 @@ title: "Output customisation"
 output: 
   bookdown::html_document2:
     toc: true
-    toc_float: true
+*   toc_float: true
 ---
 ```
 ]
@@ -580,13 +581,266 @@ Have a look at the ['Output formats' section of *R Markdown: The Definitive Guid
 ]
 
 ---
-
+class: center, middle, inverse
 # Workflows, collaboration, teaching
+
+???
+- Okay, so let's talk about how r markdown fits into concrete workflows
+- we'll start with the structure you go through when analysing data
+- then we'll work our way out to how you collaborate with others
+- and then finally how these general workflows apply to teaching
+- this part is going to be more discussion based - we'll have you dicuss what you do, and then I'll put forward best practices as per the people whose advice I follow within the R community
+
+---
+class: center, middle, inverse
+
+# General data analysis workflow
+
+---
+class: middle, center
+
+```{r}
+include_graphics("figures/workflow_general.png")
+```
+
+.footnote.black[
+[r4ds.had.co.nz/explore-intro.html](https://r4ds.had.co.nz/explore-intro.html)
+]
+
+???
+- Explain this
+- We'll take 5 minutes for you in pairs to walk through what you actually do when you go through this process - be as concrete as possible! Where do you save your files? Do you use separate scripts for different parts of the analysis etc.? (after 2.5 minutes we swith)
+- (get a couple of people to share what they do)
+- now i'll annotate this and point you to some best practices
+
+---
+class: middle
+> One day you will need to quit R, go do something else and return to your analysis later, perhaps months or years later.<br>
+
+
+--
+> One day you will have multiple analyses going that use R and you want to keep them separate.<br>
+
+
+--
+> One day you will need to hand an analysis over to someone else to critique, extend, or reuse.<br>
+
+
+--
+> One day you will need to bring data from the outside world into R and send numerical results and figures from R back out into the world.
+
+
+
+--
+>To handle these real life situations, you need to make two decisions:
+
+--
+> - What about your analysis is "real", i.e. you will save it as your lasting record of what happened?
+
+--
+> - Where does your analysis “live"?
+
+
+--
+> --- [Jenny Bryan, UBC & RStudio](https://www.stat.ubc.ca/~jenny/STAT545A/block01_basicsWorkspaceWorkingDirProject.html)
+
+---
+## What about your analysis is .color["real"]
+
+- "Interactive" typing of your code
+
+```{r, echo = TRUE}
+x <- 5
+y <- 10
+
+x + y
+```
+
+
+--
+.pull-left[
+- Saving your code as a script <br> or .Rmd file <-- .color["real"]
+]
+
+.pull-right[
+```{r, out.width="80%"}
+include_graphics("figures/script_is_real.png")
+```
+]
+
+
+---
+## Where does your analysis .color["live"]
+
+### What do you do when you open RStudio?
+.pull-left[
+![](figures/IT_doggo.jpg)
+]
+
+.pull-right[
+![](figures/gandalf.jpg)
+]
+
+
+--
+- Setting your working directory (path): `setwd("me/folder-that-only-exists-on-this-computer")`
+
+---
+## Where does your analysis .color["live"]
+
+### What do you do when you open RStudio?
+.pull-left[
+![](figures/IT_doggo.jpg)
+]
+
+.pull-right[
+![](figures/where_is_my_data.png)
+]
+
+- Setting your working directory (path): `setwd("me/folder-that-only-exists-on-this-computer")`
+
+---
+## Where does your analysis .color["live"]
+
+### What do you do when you open RStudio?
+.pull-left[
+![](figures/IT_doggo.jpg)
+]
+
+.pull-right[
+![](figures/where_is_my_data.png)
+]
+
+- Setting your working directory (path): `setwd("me/folder-that-only-exists-on-this-computer")`
+
+---
+class: center, middle, inverse
+
+# Where does your analysis .color["live"]
+
+![](figures/matrix.jpg)
+
+# Best practice: R Projects
+
+---
+## What is an R Project?
+
+.pull-left[
+- A way to keep all files (scripts, inputs, figures) associated with a project organized in one place
+
+- Keeps your files and scripts in a centralized working directory
+
+- Allows for version control and portability
+]
+
+
+.pull-right[
+```{r, out.width="60%", fig.align='center'}
+include_graphics("figures/projects1.png")
+include_graphics("figures/projects2.png")
+```
+]
+
+---
+## Naming and organising things
+
+```{r, out.width="60%", fig.align='center'}
+include_graphics("figures/naming_things.png")
+```
+
+.footnote[
+https://speakerdeck.com/jennybc/how-to-name-files
+]
+
+---
+class: middle, center
+
+```{r}
+include_graphics("figures/workflow_general.png")
+```
+
+
+--
+.import-annotation.color[
+Use R projects
+
+[JB's naming advice](https://speakerdeck.com/jennybc/how-to-name-files)
+
+`data/data-raw/`
+]
+
+
+
+--
+.tidy-annotation.color[
+`data_tidying.Rmd`
+
+`data/data-processed/`
+
+[Alison Hill's style:](https://community.rstudio.com/t/convince-me-to-start-using-r-markdown/1636/6)
+.left[
+```r
+{r load_scripts, include=FALSE}
+source('scripts/01-import.R')
+source('scripts/02-clean-names.R')
+source('scripts/03-tidy.R')
+etc.
+```
+]
+
+]
+
+
+--
+.explore-annotation.color[
+`data_analysis.Rmd`
+]
+
+
+--
+.communicate-annotation.color[
+`report.Rmd`
+]
+
+
+---
+class: center, middle, inverse
+
+# Collaboration
+
+???
+- Similarly, we'll take 5 minutes for you in pairs to walk through how you currently collaborate with other people on analysing results and writing them up 
+- Which file sharing tools do you use? How do you know what's the current version? etc.
+
+---
+## What does ideal collaboration look like?
+
+```{r}
+
+```
+
+???
+- keep in mind that collaboration could
+
+---
+
+## Where does your analysis .color["live"]
+
+### Version control
+
+???
+
+
+
+---
 
 - structure this in accordance with what you put in the keynote slides
 
 ???
-- have something about the 
+1. show the pipeline flowchart and get them to tell each other in pairs what they usually do - then afterwards I'll bring up some of the condensed wisdom of the R community (which should apply across whatever languages you use), and talk about how R Markdown fits in
+2. Here's a nice example of r markdown from start to finish: https://github.com/EvaMaeRey/from_raw_data_to_paper_and_presentation
+
+
 
 ---
 class: inverse, middle
