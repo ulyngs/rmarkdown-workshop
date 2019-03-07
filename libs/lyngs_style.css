@@ -129,3 +129,31 @@ p, li {
 .grey {
   color: grey;
 }
+
+.color {
+  color: #800020;
+}
+
+.import-annotation{
+  position: absolute;
+  left: 3%;
+  top: 10%;
+}
+
+.tidy-annotation {
+  position: absolute;
+  left: 6%;
+  top: 52%;
+}
+
+.explore-annotation {
+  position: absolute;
+  left: 48%;
+  top: 75%;
+}
+
+.communicate-annotation {
+  position: absolute;
+  left: 78%;
+  top: 28%;
+}

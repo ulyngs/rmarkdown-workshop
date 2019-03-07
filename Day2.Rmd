@@ -815,31 +815,68 @@ class: center, middle, inverse
 ---
 ## What does ideal collaboration look like?
 
-```{r}
+```{r, fig.align='center'}
+include_graphics("figures/final_final.jpg")
+```
 
+---
+## What does ideal collaboration look like?
+1. Version control
+2. Clear agreement on current 'master' version
+3. Ability to do (or deal with) simultaneous editing
+
+---
+
+```{r}
+include_graphics("figures/version_control.png")
 ```
 
 ???
-- keep in mind that collaboration could
+credit: https://github.com/will-r-chase/blog/blob/master/static/slides/intro_R_anthropology_2018.Rmd
 
 ---
+class: middle
 
-## Where does your analysis .color["live"]
+.pull-left[
+## GitHub
 
-### Version control
+```{r}
+include_graphics("figures/git_version_control.png")
+```
 
-???
+
+]
+
+.pull-right[
+## Open Science Framework
+```{r}
+include_graphics("figures/osf_version_control.png")
+include_graphics("figures/osf_checkout.png")
+```
+]
 
 
+--
+.footnote[
+There's an [R package for interfacing with OSF!](https://centerforopenscience.github.io/osfr/)
+]
 
 ---
+## Simultaneous editing?
 
-- structure this in accordance with what you put in the keynote slides
+Gold standard:
+- Google Docs (great commenting features but no citation ability)
+- [Overleaf](https://www.overleaf.com) (Google Docs for LaTeX - powerful, but only for LaTeX)
 
-???
-1. show the pipeline flowchart and get them to tell each other in pairs what they usually do - then afterwards I'll bring up some of the condensed wisdom of the R community (which should apply across whatever languages you use), and talk about how R Markdown fits in
-2. Here's a nice example of r markdown from start to finish: https://github.com/EvaMaeRey/from_raw_data_to_paper_and_presentation
+.large.center[
+How can these play nice with R Markdown?
+]
 
+---
+## Simultaneous editing?
+1. Don't.
+2. Knit to Word document > upload to Google Docs > comment and suggest edits there > manually integrate changes into .Rmd source file
+3. Edit raw R Markdown on Google Docs
 
 
 ---
@@ -859,12 +896,54 @@ class: inverse, middle
 
 ]
 
+---
+class: center, middle, inverse
+
+# Teaching
+
+???
+- again, discuss with your partner for 4 minutes some of the thoughts you at the moment have about using R Markdown in teaching
 
 ---
+# Suggestions from the R community
 
-# For working with Word and Powerpoint
-- The [`officer`](https://davidgohel.github.io/officer/) package - allows you to read **.docx** and **.pptx** files into R and as R objects, manipulate them, and then save out the modified version back to disk
+### Student assignment submissions with R Markdown 
 
+--
+> For teaching statistics, I ask students to submit R Markdown files and a knitted version with echo = TRUE as a global option. <br>
+
+--
+> This has made grading assignments so much easier, and the students can work in one document to analyze AND interpret data (rather than working in R console, and copying/pasting R code and output into a text editor or Word document, then adding narrative).
+
+
+> [Alison Presmanes Hill](Alison Presmanes Hill on the RStudio Community
+https://community.rstudio.com/t/convince-me-to-start-using-r-markdown/1636/6) 
+
+
+---
+# Suggestions from the R community
+
+### Student assignment submissions with R Markdown
+### Use [rstudio.cloud](https://rstudio.cloud):
+
+
+--
+- Use RStudio directly in the browser, with no need to install or configure anything on students' computers
+
+
+--
+- Free to use (for now)
+
+  
+--
+- Teacher decides libraries to be installed in the virtual environment
+
+---
+# Suggestions from the R community
+
+### Student assignment submissions with R Markdown
+### Use [rstudio.cloud](https://rstudio.cloud):
+### Search through [community.rstudio.com](https://community.rstudio.com/t/convince-me-to-start-using-r-markdown/1636/7) for teaching tips
 
 ---
 
@@ -908,7 +987,33 @@ class: inverse, middle
 ]
 
 ---
-
-
 # Resources / learn more
 
+.pull-left[
+### R Markdown
+- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+- [R for Data Science: R Markdown](https://r4ds.had.co.nz/r-markdown.html)
+- [RStudio website: R Markdown](https://rmarkdown.rstudio.com/index.html)
+- [Getting used to R, RStudio, and R Markdown](https://ismayc.github.io/rbasics-book/4-rmarkdown.html)
+- Cheat sheets and Reference: In RStudio, go to Help > Cheatsheets > R Markdown Cheat Sheet / R Markdown Reference Guide
+]
+
+.pull-right[
+**Workflows** <br>
+R markdown from start to finish example: [github.com/EvaMaeRey/from_raw_data_to_paper_and_presentation](https://github.com/EvaMaeRey/from_raw_data_to_paper_and_presentation)
+
+**Working with Word and Powerpoint**
+- The [`officer`](https://davidgohel.github.io/officer/) package - read **.docx** and **.pptx** files into R as R objects, manipulate them, and save modified version
+
+**Learning GitHub**
+1. Hadley Wickham's guide: [r-pkgs.had.co.nz/git.html](http://r-pkgs.had.co.nz/git.html)
+2. Jenny Bryan's guide: [happygitwithr.com](https://happygitwithr.com)
+]
+
+---
+class: center, middle
+
+<iframe src="https://giphy.com/embed/l0NhZ0aUSE8fXag12" width="1000" height="500" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+???
+- So this was an awful lot of content - hopefully this will be useful no matter what prior level you were at

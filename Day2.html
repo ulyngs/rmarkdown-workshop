@@ -152,7 +152,7 @@ title: "Output customisation"
 output: 
   bookdown::html_document2:
     toc: true
-    toc_float: true
+*   toc_float: true
 ---
 ```
 ]
@@ -549,13 +549,288 @@ Have a look at the ['Output formats' section of *R Markdown: The Definitive Guid
 ]
 
 ---
-
+class: center, middle, inverse
 # Workflows, collaboration, teaching
 
-- structure this in accordance with what you put in the keynote slides
+???
+- Okay, so let's talk about how r markdown fits into concrete workflows
+- we'll start with the structure you go through when analysing data
+- then we'll work our way out to how you collaborate with others
+- and then finally how these general workflows apply to teaching
+- this part is going to be more discussion based - we'll have you dicuss what you do, and then I'll put forward best practices as per the people whose advice I follow within the R community
+
+---
+class: center, middle, inverse
+
+# General data analysis workflow
+
+---
+class: middle, center
+
+&lt;img src="figures/workflow_general.png" width="3173" /&gt;
+
+.footnote.black[
+[r4ds.had.co.nz/explore-intro.html](https://r4ds.had.co.nz/explore-intro.html)
+]
 
 ???
-- have something about the 
+- Explain this
+- We'll take 5 minutes for you in pairs to walk through what you actually do when you go through this process - be as concrete as possible! Where do you save your files? Do you use separate scripts for different parts of the analysis etc.? (after 2.5 minutes we swith)
+- (get a couple of people to share what they do)
+- now i'll annotate this and point you to some best practices
+
+---
+class: middle
+&gt; One day you will need to quit R, go do something else and return to your analysis later, perhaps months or years later.&lt;br&gt;
+
+
+--
+&gt; One day you will have multiple analyses going that use R and you want to keep them separate.&lt;br&gt;
+
+
+--
+&gt; One day you will need to hand an analysis over to someone else to critique, extend, or reuse.&lt;br&gt;
+
+
+--
+&gt; One day you will need to bring data from the outside world into R and send numerical results and figures from R back out into the world.
+
+
+
+--
+&gt;To handle these real life situations, you need to make two decisions:
+
+--
+&gt; - What about your analysis is "real", i.e. you will save it as your lasting record of what happened?
+
+--
+&gt; - Where does your analysis “live"?
+
+
+--
+&gt; --- [Jenny Bryan, UBC &amp; RStudio](https://www.stat.ubc.ca/~jenny/STAT545A/block01_basicsWorkspaceWorkingDirProject.html)
+
+---
+## What about your analysis is .color["real"]
+
+- "Interactive" typing of your code
+
+
+```r
+x &lt;- 5
+y &lt;- 10
+
+x + y
+```
+
+```
+## [1] 15
+```
+
+
+--
+.pull-left[
+- Saving your code as a script &lt;br&gt; or .Rmd file &lt;-- .color["real"]
+]
+
+.pull-right[
+&lt;img src="figures/script_is_real.png" width="80%" /&gt;
+]
+
+
+---
+## Where does your analysis .color["live"]
+
+### What do you do when you open RStudio?
+.pull-left[
+![](figures/IT_doggo.jpg)
+]
+
+.pull-right[
+![](figures/gandalf.jpg)
+]
+
+
+--
+- Setting your working directory (path): `setwd("me/folder-that-only-exists-on-this-computer")`
+
+---
+## Where does your analysis .color["live"]
+
+### What do you do when you open RStudio?
+.pull-left[
+![](figures/IT_doggo.jpg)
+]
+
+.pull-right[
+![](figures/where_is_my_data.png)
+]
+
+- Setting your working directory (path): `setwd("me/folder-that-only-exists-on-this-computer")`
+
+---
+## Where does your analysis .color["live"]
+
+### What do you do when you open RStudio?
+.pull-left[
+![](figures/IT_doggo.jpg)
+]
+
+.pull-right[
+![](figures/where_is_my_data.png)
+]
+
+- Setting your working directory (path): `setwd("me/folder-that-only-exists-on-this-computer")`
+
+---
+class: center, middle, inverse
+
+# Where does your analysis .color["live"]
+
+![](figures/matrix.jpg)
+
+# Best practice: R Projects
+
+---
+## What is an R Project?
+
+.pull-left[
+- A way to keep all files (scripts, inputs, figures) associated with a project organized in one place
+
+- Keeps your files and scripts in a centralized working directory
+
+- Allows for version control and portability
+]
+
+
+.pull-right[
+&lt;img src="figures/projects1.png" width="60%" style="display: block; margin: auto;" /&gt;&lt;img src="figures/projects2.png" width="60%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+## Naming and organising things
+
+&lt;img src="figures/naming_things.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+https://speakerdeck.com/jennybc/how-to-name-files
+]
+
+---
+class: middle, center
+
+&lt;img src="figures/workflow_general.png" width="3173" /&gt;
+
+
+--
+.import-annotation.color[
+Use R projects
+
+[JB's naming advice](https://speakerdeck.com/jennybc/how-to-name-files)
+
+`data/data-raw/`
+]
+
+
+
+--
+.tidy-annotation.color[
+`data_tidying.Rmd`
+
+`data/data-processed/`
+
+[Alison Hill's style:](https://community.rstudio.com/t/convince-me-to-start-using-r-markdown/1636/6)
+.left[
+```r
+{r load_scripts, include=FALSE}
+source('scripts/01-import.R')
+source('scripts/02-clean-names.R')
+source('scripts/03-tidy.R')
+etc.
+```
+]
+
+]
+
+
+--
+.explore-annotation.color[
+`data_analysis.Rmd`
+]
+
+
+--
+.communicate-annotation.color[
+`report.Rmd`
+]
+
+
+---
+class: center, middle, inverse
+
+# Collaboration
+
+???
+- Similarly, we'll take 5 minutes for you in pairs to walk through how you currently collaborate with other people on analysing results and writing them up 
+- Which file sharing tools do you use? How do you know what's the current version? etc.
+
+---
+## What does ideal collaboration look like?
+
+&lt;img src="figures/final_final.jpg" style="display: block; margin: auto;" /&gt;
+
+---
+## What does ideal collaboration look like?
+1. Version control
+2. Clear agreement on current 'master' version
+3. Ability to do (or deal with) simultaneous editing
+
+---
+
+&lt;img src="figures/version_control.png" width="1707" /&gt;
+
+???
+credit: https://github.com/will-r-chase/blog/blob/master/static/slides/intro_R_anthropology_2018.Rmd
+
+---
+class: middle
+
+.pull-left[
+## GitHub
+
+&lt;img src="figures/git_version_control.png" width="1332" /&gt;
+
+
+]
+
+.pull-right[
+## Open Science Framework
+&lt;img src="figures/osf_version_control.png" width="1588" /&gt;&lt;img src="figures/osf_checkout.png" width="3443" /&gt;
+]
+
+
+--
+.footnote[
+There's an [R package for interfacing with OSF!](https://centerforopenscience.github.io/osfr/)
+]
+
+---
+## Simultaneous editing?
+
+Gold standard:
+- Google Docs (great commenting features but no citation ability)
+- [Overleaf](https://www.overleaf.com) (Google Docs for LaTeX - powerful, but only for LaTeX)
+
+.large.center[
+How can these play nice with R Markdown?
+]
+
+---
+## Simultaneous editing?
+1. Don't.
+2. Knit to Word document &gt; upload to Google Docs &gt; comment and suggest edits there &gt; manually integrate changes into .Rmd source file
+3. Edit raw R Markdown on Google Docs
+
 
 ---
 class: inverse, middle
@@ -574,12 +849,54 @@ class: inverse, middle
 
 ]
 
+---
+class: center, middle, inverse
+
+# Teaching
+
+???
+- again, discuss with your partner for 4 minutes some of the thoughts you at the moment have about using R Markdown in teaching
 
 ---
+# Suggestions from the R community
 
-# For working with Word and Powerpoint
-- The [`officer`](https://davidgohel.github.io/officer/) package - allows you to read **.docx** and **.pptx** files into R and as R objects, manipulate them, and then save out the modified version back to disk
+### Student assignment submissions with R Markdown 
 
+--
+&gt; For teaching statistics, I ask students to submit R Markdown files and a knitted version with echo = TRUE as a global option. &lt;br&gt;
+
+--
+&gt; This has made grading assignments so much easier, and the students can work in one document to analyze AND interpret data (rather than working in R console, and copying/pasting R code and output into a text editor or Word document, then adding narrative).
+
+
+&gt; [Alison Presmanes Hill](Alison Presmanes Hill on the RStudio Community
+https://community.rstudio.com/t/convince-me-to-start-using-r-markdown/1636/6) 
+
+
+---
+# Suggestions from the R community
+
+### Student assignment submissions with R Markdown
+### Use [rstudio.cloud](https://rstudio.cloud):
+
+
+--
+- Use RStudio directly in the browser, with no need to install or configure anything on students' computers
+
+
+--
+- Free to use (for now)
+
+  
+--
+- Teacher decides libraries to be installed in the virtual environment
+
+---
+# Suggestions from the R community
+
+### Student assignment submissions with R Markdown
+### Use [rstudio.cloud](https://rstudio.cloud):
+### Search through [community.rstudio.com](https://community.rstudio.com/t/convince-me-to-start-using-r-markdown/1636/7) for teaching tips
 
 ---
 
@@ -623,9 +940,36 @@ class: inverse, middle
 ]
 
 ---
-
-
 # Resources / learn more
+
+.pull-left[
+### R Markdown
+- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+- [R for Data Science: R Markdown](https://r4ds.had.co.nz/r-markdown.html)
+- [RStudio website: R Markdown](https://rmarkdown.rstudio.com/index.html)
+- [Getting used to R, RStudio, and R Markdown](https://ismayc.github.io/rbasics-book/4-rmarkdown.html)
+- Cheat sheets and Reference: In RStudio, go to Help &gt; Cheatsheets &gt; R Markdown Cheat Sheet / R Markdown Reference Guide
+]
+
+.pull-right[
+**Workflows** &lt;br&gt;
+R markdown from start to finish example: [github.com/EvaMaeRey/from_raw_data_to_paper_and_presentation](https://github.com/EvaMaeRey/from_raw_data_to_paper_and_presentation)
+
+**Working with Word and Powerpoint**
+- The [`officer`](https://davidgohel.github.io/officer/) package - read **.docx** and **.pptx** files into R as R objects, manipulate them, and save modified version
+
+**Learning GitHub**
+1. Hadley Wickham's guide: [r-pkgs.had.co.nz/git.html](http://r-pkgs.had.co.nz/git.html)
+2. Jenny Bryan's guide: [happygitwithr.com](https://happygitwithr.com)
+]
+
+---
+class: center, middle
+
+&lt;iframe src="https://giphy.com/embed/l0NhZ0aUSE8fXag12" width="1000" height="500" frameBorder="0" class="giphy-embed" allowFullScreen&gt;&lt;/iframe&gt;
+
+???
+- So this was an awful lot of content - hopefully this will be useful no matter what prior level you were at
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="libs/remark-latest.min.js"></script>
