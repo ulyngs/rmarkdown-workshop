@@ -260,6 +260,9 @@ knitr::include_graphics("figures/latex.png")
 
 ]
 
+???
+maybe embed this one too: https://twitter.com/dgkeyes/status/1101554699566641152
+
 ---
 
 class: center, middle, inverse
@@ -876,7 +879,7 @@ class: center, middle, inverse
 ```yaml
 ---
 title: "Citation test"
-bibliography: example.bib
+*bibliography: example.bib
 output: html_document
 ---
 ```
@@ -1008,7 +1011,7 @@ knitr::kable(cars[1:5,],
 --
 .pull-right[
 - To refer to tables use the syntax `\@ref(tab:label)`
-- So we'd refer to this image with `\@ref(tab:cars)`
+- So we'd refer to this table with `\@ref(tab:cars)`
 - ...examples here: [Rmd](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/cross_referencing.Rmd), [HTML](examples/cross-referencing.html)
 ]
 ---
