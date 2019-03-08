@@ -77,6 +77,7 @@ class: center, middle, inverse
 # Why am I here?
 
 ---
+class: larger-body
 # R Markdown nerd
 
 .pull-left[
@@ -100,25 +101,20 @@ class: inverse, center, middle
 # Plan
 
 ---
-class: middle
+class: middle, very-large-body
 .pull-left[
 ## Day 1: Fundamentals
-.large[
 - Why R Markdown?
 - Basic syntax: Markdown & code
 - Final pieces: Citations & cross-referencing
-]
 ]
 
 --
 .pull-right[
 ## Day 2: Applications
-.large[
 - Customising your output
 - Workflows, collaboration & teaching
 - Putting it all together
-
-]
 ]
 
 ???
@@ -131,6 +127,7 @@ class: center, middle, inverse
 # Day 1: Fundamentals
 
 ---
+class: very-large-body
 # Wouldn't it be great if...
 
 --
@@ -633,6 +630,7 @@ class: small-font
 - `fig.cap`: figure caption
 
 ---
+class: larger-body
 # Typical chunks
 ### Setup chunk
 ````markdown
@@ -704,6 +702,7 @@ A ggplot of car stuff
 
 
 ---
+class: larger-body
 ### Including tables
 
 .pull-left[
@@ -735,6 +734,7 @@ cars %>%
 - A number of other packages are available for making pretty tables, see [rmarkdown.rstudio.com](https://rmarkdown.rstudio.com/lesson-7.html)
 
 ---
+class: larger-body
 # Inline code
 
 --
@@ -763,6 +763,7 @@ There are `r num_diamonds` rows in the `diamonds` dataset.
 ]
 
 ---
+class: larger-body
 # Inline code with python
 
 --
@@ -806,6 +807,7 @@ Inline you can then refer to this python variable with <span>&#96;</span>r py$my
 
 
 ---
+class: larger-body
 .center[
 # Time for practice!
 ]
@@ -853,6 +855,7 @@ class: center, middle, inverse
 # Final pieces
 
 ---
+class: larger-body
 # Citations
 
 --
@@ -888,6 +891,7 @@ output: html_document
 [1] The bibliography can be in other formats as well, including EndNote (**.enl**) and RIS (**.ris**), see [rmarkdown.rstudio.com/authoring_bibliographies_and_citations](https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html)
 
 ---
+class: larger-body
 # Citations
 <ol start = 3>
 <li>In your text, citations go inside brackets and separated by semicolons. <br> By default the Chicago author-date format is used in the output:
@@ -897,11 +901,28 @@ output: html_document
 .pull-left[
 ### This...
 Blah blah [@Shea2014; @Lottridge2012].
+]
+
+.pull-right[
+### turns into this...
   
+Blah blah (Shea et al. 2014; Lottridge et al. 2012).
+]
+---
+class: larger-body
+# Citations
+<ol start = 3>
+<li>In your text, citations go inside brackets and separated by semicolons. <br> By default the Chicago author-date format is used in the output:
+</ol>
+
+
+.pull-left[
+### This...
+Blah blah [@Shea2014; @Lottridge2012].
+
 Shea et al. says blah [-@Shea2014].
 
-@Shea2014 says blah.<br>
-@Shea2014 [p. 33] says blah.
+@Shea2014 says blah.
 
 Blah blah [see @Shea2014, pp. 33-35; also @Wu2016, ch. 1].
 ]
@@ -913,8 +934,39 @@ Blah blah (Shea et al. 2014; Lottridge et al. 2012).
 
 Shea et al. says blah (2014).
 
-Shea et al. (2014) says blah.<br>
-Shea et al. (2014, 33) says blah.
+Shea et al. (2014) says blah.
+
+Blah blah (see Shea et al. 2014, 33–35; also Wu 2016, ch. 1).
+]
+
+
+---
+class: larger-body
+# Citations
+<ol start = 3>
+<li>In your text, citations go inside brackets and separated by semicolons. <br> By default the Chicago author-date format is used in the output:
+</ol>
+
+
+.pull-left[
+### This...
+Blah blah [@Shea2014; @Lottridge2012].
+  
+Shea et al. says blah [-@Shea2014].
+
+@Shea2014 says blah.
+
+Blah blah [see @Shea2014, pp. 33-35; also @Wu2016, ch. 1].
+]
+
+.pull-right[
+### turns into this...
+  
+Blah blah (Shea et al. 2014; Lottridge et al. 2012).
+
+Shea et al. says blah (2014).
+
+Shea et al. (2014) says blah.
 
 Blah blah (see Shea et al. 2014, 33–35; also Wu 2016, ch. 1).
 ]
@@ -922,6 +974,7 @@ Blah blah (see Shea et al. 2014, 33–35; also Wu 2016, ch. 1).
 You can add e.g `csl: my-style.csl` in the YAML header to change to other formats - browse through and download styles at [zotero.org/styles](https://www.zotero.org/styles)
 
 ---
+class: larger-body
 # Citations
 For an easy way to insert citations, try the [`citr`](https://github.com/crsh/citr) RStudio add-in.
 
@@ -941,6 +994,7 @@ For an easy way to insert citations, try the [`citr`](https://github.com/crsh/ci
 ]
 
 ---
+class: larger-body
 # Cross-referencing
 - The `bookdown` package adds capability to do cross-referencing. We can refer to **sections** within our document, to **figures** and **tables**, and even pieces of **text**.
 
@@ -957,30 +1011,36 @@ output: bookdown::html_document2
 ```
 
 ---
+class: larger-body
 ### Section references
 - Headers are automatically assigned a reference label, which is the text in lower caps separated by dashes
-  - For example, the label for `# My header` is `my-header`
 
+--
+  - For example, the label for `# My header` is `my-header`
 
 --
 - The cross-reference syntax is `\@ref(label)` 
+
+--
   - So `# My header` can be referenced with `\@ref(my-section)`
+  
+--
   - .Rmd: `See section \@ref(my-header)` -> output: 'See section 1'
   
-
+  
 --
 - You can also use hyperlink syntax and add \# before the label
   - .Rmd: `[see this section](#my-header)` -> output: '[see this section](#section-references)'
 
-
 --
-- Create custom labels by adding `{\#label}` after a header, e.g. `# My section {#my-label}`.
+- Create custom labels by adding `{#label}` after a header, e.g. `# My section {#my-label}`.
 
 
 --
 Examples here: [Rmd file](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/cross_referencing.Rmd) and [HTML output](examples/cross_referencing.html).
 
 ---
+class: larger-body
 ## Figure and table references
 - **GOTCHA**: Figures and tables must have captions if you wish to cross-reference them.
 
@@ -1006,6 +1066,7 @@ knitr::include_graphics("figures/captain.jpeg")
 ]
 
 ---
+class: larger-body
 ## Figure and table references
 .pull-left[
 ````markdown
@@ -1030,7 +1091,7 @@ knitr::kable(cars[1:5,],
 - ...examples here: [Rmd](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/cross_referencing.Rmd), [HTML](examples/cross-referencing.html)
 ]
 ---
-
+class: larger-body
 .center[
 # Time for practice!
 ]
