@@ -180,9 +180,8 @@ class: very-large-body
 ]
 
 .pull-right[
-&lt;img src="figures/cropped.png" width="1373" /&gt;
+&lt;img src="figures/latex.png" width="775" /&gt;
 
-*Markdown*
 ]
 
 ---
@@ -196,8 +195,9 @@ class: very-large-body
 ]
 
 .pull-right[
-&lt;img src="figures/latex.png" width="775" /&gt;
+&lt;img src="figures/cropped.png" width="1373" /&gt;
 
+*Markdown*
 ]
 
 ---
@@ -533,7 +533,7 @@ class: practice-slide
 ]
 
 Everybody should already have on their laptops...
-- [R](https://cran.rstudio.com) and [RStudio](https://www.rstudio.com/products/rstudio/download/preview/) + the R packages `bookdown` and `tidyverse` (`install.packages(package-name)`)
+- [R](https://cran.rstudio.com) and [RStudio](https://www.rstudio.com/products/rstudio/download/preview/) + the R packages `bookdown` and `tidyverse` (`install.packages("package-name")`)
 - a LaTeX installation, for knitting to PDF (`tinytex::install_tinytex()`)
 
 --
@@ -555,7 +555,7 @@ Everybody should already have on their laptops...
 .row[
 
 .col-4.beginner[
-*Create a new R Markdown document* &lt;br&gt;
+*Create a new R Markdown file* &lt;br&gt;
 (File &gt; New File &gt; R Markdown...)
 
 *Knit to HTML, PDF, Word*
@@ -568,7 +568,7 @@ Everybody should already have on their laptops...
 ]
   
 .col-4.intermediate[
-In a new R Markdown document, write a paragraph that contains
+In a new R Markdown file, add a paragraph that contains
 - a hyperlink
 - a blockquote
 - a comment
@@ -581,9 +581,9 @@ Skim through the references available from within RStudio:
 ]
 
 .col-4.advanced[
-- when making footnotes, what are the two ways you can place the footnote text?
-- how do you get literal backticks in your output?
-- what's the difference between outputting to `rmarkdown::pdf_document` and `bookdown::pdf_document2`?
+- When making footnotes, what are the two ways to create the actual footnote text?
+- How do you get literal backticks (&amp;#96;) in your output?
+- What's the difference between outputting to `rmarkdown::pdf_document` and `bookdown::pdf_document2`?
 
 ]
 
@@ -841,24 +841,33 @@ class: larger-body
 .row[
 
 .col-4.beginner[
-In a new R Markdown document, use code chunks to
-- include an image with `knitr::include_graphics`
-- include a plot (e.g. `plot(pressure)`)
-- include a table (using `kable`)
-- report a calculation inline
+In a new R Markdown file, use code chunks to
+1. include an image with `knitr::include_graphics`
+2. include a plot (e.g. `plot(pressure)`)
+3. include a table (using `kable`)
+4. report a calculation inline
 ]
   
 .col-4.intermediate[
-- try resizing plots with `out.width` and `fig.width` - what's the difference?
-- how do you set `knitr`'s global options to hide code by default? 
-- what other options are available to control if a code block is executed and what results are inserted in the finished report? (Hint: see [R for Data Science, 27.4.2](https://r4ds.had.co.nz/r-markdown.html))
+1. Try resizing plots with `out.width` and `fig.width` - what's the difference?
+2. How do you set `knitr`'s global options to hide code by default?
+3. What other options are available to control if a code block is executed and what results are inserted in the finished report? (Hint: see [R for Data Science, 27.4.2](https://r4ds.had.co.nz/r-markdown.html))
 ]
 
 .col-4.advanced[
-- what's the use of `cache = TRUE`? How does it relate to the `dependson` chunk option?
-- how might you create new chunk options, if the ones provided by `knitr` are not sufficient?
+1. What's the use of `cache = TRUE`? How does it relate to the `dependson` chunk option?
+2. How might you create new chunk options, if the ones provided by `knitr` are not sufficient?
 ]
 ]
+
+???
+Beginner
+
+Intermed
+1. aspect ratio in generated plot vs resizing after the fact (https://sebastiansauer.github.io/figure_sizing_knitr/)
+
+Advanced
+2. see my blogpost, https://ulyngs.github.io/blog/posts/2019-02-01-how-to-create-your-own-chunk-options-in-r-markdown/
 
 ---
 class: center, middle, inverse
@@ -1037,8 +1046,12 @@ class: larger-body
   - .Rmd: `See section \@ref(my-header)` -&gt; output: 'See section 1'
   
   
---
+---
+class: larger-body
+### Section references
 - You can also use hyperlink syntax and add \# before the label
+
+--
   - .Rmd: `[see this section](#my-header)` -&gt; output: '[see this section](#section-references)'
 
 --
@@ -1069,10 +1082,18 @@ knitr::include_graphics("figures/captain.jpeg")
 
 --
 .pull-right[
-- Recall that the first chunk option after the language is the label (we could also be explicit with `label=captain`).
-- To refer to figures (plots and images) use the syntax `\@ref(fig:label)`
+- To refer to figures (plots and images) use the syntax `\@ref(fig:label)`&lt;sup&gt;1&lt;/sup&gt;
 - So we'd refer to this image with `\@ref(fig:captain)`
 - Again, examples here: [Rmd](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/cross_referencing.Rmd), [HTML](examples/cross-referencing.html)
+]
+
+
+--
+.pull-right[
+.footnote[
+[1] Recall that the first chunk option after the language is the label (we could also be explicit with `label=captain`).
+]
+
 ]
 
 ---
@@ -1130,20 +1151,20 @@ class: larger-body
 .row[
 
 .col-4.beginner[
-1. install the `citr` RStudio add-in
-2. Open **examples/citation_test.Rmd** and add a new paragraph with two citations - what happens when you knit?
+1. Install the `citr` RStudio add-in
+2. Open **examples/citation_test.Rmd** and add a new paragraph in which you use `citr` to add two citations - what happens when you knit?
 3. Make cross-references to a figure and a table
 ]
   
 .col-4.intermediate[
-1. Add a custom label to a header and reference it
-2. Have a look through [zotero.org/styles](https://www.zotero.org/styles); download two new styles and try them out in **examples/citation_test.Rmd**.
-
+1. Open **examples/citation_test.Rmd** and change the citation style with `csl: citation_styles/apa.csl`. What happens when you knit?
+2. Have a look through [zotero.org/styles](https://www.zotero.org/styles); download another styles and test it.
+3. Add a custom label to a header and reference it
 ]
 
 .col-4.advanced[
-1. How would you handle a situation where special characters made `fig.cap` mess up? (.black[[hint](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references)])
-2. How do you stop pandoc from automatically inserting cited references by the end of the document?
+1. How do you stop pandoc from automatically inserting cited references by the end of the document?
+2. How would you handle a situation where special characters made `fig.cap` mess up? (.black[[hint](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references)])
 ]
 ]
 
