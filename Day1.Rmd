@@ -57,6 +57,8 @@ knitr::include_graphics("figures/rmarkdown.png")
 
 Slides:<br> [ulyngs.github.io/rmarkdown-workshop-2019](https://ulyngs.github.io/rmarkdown-workshop-2019/)
 
+Materials:<br> [github.com/ulyngs/rmarkdown-workshop-2019](https://github.com/ulyngs/rmarkdown-workshop-2019)
+
 
 ]
 
