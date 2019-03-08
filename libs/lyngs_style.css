@@ -78,8 +78,12 @@ h1.huge{
   font-size: 300%;
 }
 
-p, li {
-  font-size: 1.1em;
+.larger-body p, .larger-body li {
+  font-size: 1.15em;
+}
+
+.very-large-body p, .very-large-body li {
+  font-size: 1.4em;
 }
 
 .on-top-right {
@@ -93,7 +97,6 @@ p, li {
 .syntax-slide li,
 .small-font p,
 .small-font li{
-  font-size: 1.05em;
   margin-bottom: 0;
 }
 .syntax-slide h3 {
@@ -104,7 +107,6 @@ p, li {
 .practice-slide li,
 .practice-slide p,
 .practice-slide ul {
-  font-size: 1em;
   margin-bottom: 0;
 }
 
