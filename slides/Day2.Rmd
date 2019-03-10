@@ -64,26 +64,174 @@ Materials:<br> [github.com/ulyngs/rmarkdown-workshop-2019](https://github.com/ul
 ]
 
 ---
-class: middle, larger-body
+# Day 1 Recap
 
-.center[
-# Plan
+.row[
+.col-4[
+### Markdown syntax
+\*italics\* and \*\*bold\*\*  
+  
+  <span>&#96;</span>inline code&#96;
+  
+  sub~2~/superscript^2^
+  
+  \~\~strikethrough\~\~
+  
+  escaped: \\* \\_ \\\
+  
+  endash: --, emdash: ---
+  
+  \> blockquote
+  
+  \# Header 1
+  
+  \#\# Header 2
+  
+  Roses are red \ <br>
+  Violets are blue
+]
+
+.col-8[
+
+]
+
 ]
 
 
-.pull-left[
-## Day 1: Fundamentals
-.large[
-- Why R Markdown?
-- Basic syntax: Markdown & code
-- Final pieces: Citations & cross-referencing
-]
+---
+# Day 1 Recap
+
+.row[
+.col-4[
+### Markdown syntax
+\*italics\* and \*\*bold\*\*  
+  
+  <span>&#96;</span>inline code&#96;
+  
+  sub~2~/superscript^2^
+  
+  \~\~strikethrough\~\~
+  
+  escaped: \\* \\_ \\\
+  
+  endash: --, emdash: ---
+  
+  \> blockquote
+  
+  \# Header 1
+  
+  \#\# Header 2
+  
+  Roses are red \ <br>
+  Violets are blue
 ]
 
-.pull-right[
+.col-4[
+### Including code
+
+**Chunks**:<br>
+````markdown
+`r ''````{r my-chunk, echo=TRUE}
+# this is a code chunk
+num_rows <- nrow(cars)
+
+```
+````
+
+**Inline**:<br>
+*There are <span>&#96;</span>r num_rows&#96; rows in the `cars` dataset.*
+
+.center[-->]
+
+*There are `r nrow(cars)` rows in the `cars` dataset.*
 
 ]
 
+.col-4[
+
+]
+
+]
+
+---
+
+# Day 1 Recap
+
+.row[
+.col-4[
+### Markdown syntax
+\*italics\* and \*\*bold\*\*  
+  
+  <span>&#96;</span>inline code&#96;
+  
+  sub~2~/superscript^2^
+  
+  \~\~strikethrough\~\~
+  
+  escaped: \\* \\_ \\\
+  
+  endash: --, emdash: ---
+  
+  \> blockquote
+  
+  \# Header 1
+  
+  \#\# Header 2
+  
+  Roses are red \ <br>
+  Violets are blue
+]
+
+.col-4[
+### Including code
+
+**Chunks**:<br>
+````markdown
+`r ''````{r my-chunk, echo=TRUE}
+# this is a code chunk
+num_rows <- nrow(cars)
+
+```
+````
+
+**Inline**:<br>
+*There are <span>&#96;</span>r num_rows&#96; rows in the `cars` dataset.*
+
+.center[-->]
+
+*There are `r nrow(cars)` rows in the `cars` dataset.*
+
+]
+
+.col-4[
+### Citations & cross-referencing
+```yaml
+---
+output: bookdown::html_document2
+---
+```
+
+````markdown
+`r ''````{r captain, fig.cap="A meme"}
+knitr::include_graphics("cap.jpeg")
+
+```
+````
+
+Syntax: 
+`\@ref(label)` (sections)
+`\@ref(fig:label)` (plots & images)
+`\@ref(tab:label)` (tables)
+
+*Figure* \@ref(fig:captain) *shows a great meme.*
+
+.center[-->]
+
+*Figure 1.1 shows a great meme.*
+
+]
+
+]
 
 ---
 
@@ -589,7 +737,7 @@ Examples: Output customisation ([HTML](examples/output_customisation.html), [Rmd
 
 .col-4.beginner[
 1. Toggle table of contents on and off in two different output formats.
-2. Find out how to customise what level of headings to include in the table of contents
+2. Try customising the depth of headings to include in the table of contents with e.g. `toc_depth: 2` 
 3. Have a scroll through the range of output formats available in [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/html-document.html).
 
 ]
@@ -597,7 +745,7 @@ Examples: Output customisation ([HTML](examples/output_customisation.html), [Rmd
 .col-4.intermediate[
 Have a look at the ['Output formats' section of R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/html-document.html):
 1. How do you output to HTML where code is hidden but the user can choose to see it?
-2. Try to use `reference_docx` to output to Word document. Can you succesfully customise the header and body styles in the template?
+2. Try to use `reference_docx` to output to Word document. Can you succesfully customise the header and body styles?
 ]
 
 .col-4.advanced[
