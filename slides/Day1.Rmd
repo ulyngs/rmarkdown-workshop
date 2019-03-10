@@ -1079,7 +1079,7 @@ knitr::include_graphics("figures/captain.jpeg")
 .pull-right[
 - To refer to figures (plots and images) use the syntax `\@ref(fig:label)`<sup>1</sup>
 - So we'd refer to this image with `\@ref(fig:captain)`
-- Again, examples here: [Rmd](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/cross_referencing.Rmd), [HTML](../examples/cross-referencing.html)
+- Again, examples here: [Rmd](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/cross_referencing.Rmd), [HTML](../examples/cross_referencing.html)
 ]
 
 
@@ -1114,7 +1114,7 @@ knitr::kable(cars[1:5,],
 .pull-right[
 - To refer to tables use the syntax `\@ref(tab:label)`
 - So we'd refer to this table with `\@ref(tab:cars)`
-- ...examples here: [Rmd](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/cross_referencing.Rmd), [HTML](../examples/cross-referencing.html)
+- ...examples here: [Rmd](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/cross_referencing.Rmd), [HTML](../examples/cross_referencing.html)
 ]
 ---
 class: larger-body
