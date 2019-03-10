@@ -715,7 +715,7 @@ class: practice-slide, larger-body
 
 .center[
 # Time for practice!
-Examples: Output customisation ([HTML](examples/output_customisation.html), [Rmd](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/output_customisation.Rmd)) ; Using LaTeX templates ([HTML](examples/using_latex_templates.html), [Rmd](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/using_latex_templates.Rmd))
+Examples: Output customisation ( [Rmd](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/output_customisation.Rmd), [HTML](../examples/output_customisation.html)) ; Using LaTeX templates ([Rmd](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/using_latex_templates.Rmd), [HTML](../examples/using_latex_templates.html))
 ]
 
 .row[
