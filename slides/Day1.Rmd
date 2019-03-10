@@ -65,11 +65,7 @@ Materials:<br> [github.com/ulyngs/rmarkdown-workshop-2019](https://github.com/ul
 ]
 
 ???
-
-- who am I?
-- 3rd year DPhil student, [Human Centred Computing Group](https://www.cs.ox.ac.uk/research/HCC/)
-- Cognitive psychologist-turned-computer scientist
-- fan of open science, think R Markdown's got stuff going for it
+- welcome, before I say more, let's see a clip from my favorite scary movie
 
 ---
 <iframe width="1300" height="600" src="https://www.youtube.com/embed/s3JldKoA0zw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -77,6 +73,13 @@ Materials:<br> [github.com/ulyngs/rmarkdown-workshop-2019](https://github.com/ul
 class: center, middle, inverse
 
 # Why am I here?
+
+???
+
+- who am I?
+- 3rd year DPhil student, [Human Centred Computing Group](https://www.cs.ox.ac.uk/research/HCC/)
+- Cognitive psychologist-turned-computer scientist
+- fan of open science, think R Markdown's got stuff going for it
 
 ---
 class: larger-body
@@ -556,7 +559,7 @@ class: practice-slide
 ]
 
 Everybody should already have on their laptops...
-- [R](https://cran.rstudio.com) and [RStudio](https://www.rstudio.com/products/rstudio/download/preview/) + the R packages `bookdown` and `tidyverse` (`install.packages("package-name")`)
+- [R](https://cran.rstudio.com) and [RStudio](https://www.rstudio.com/products/rstudio/download/preview/) + R packages `bookdown` and `tidyverse` (`install.packages("package-name")`)
 - a LaTeX installation, for knitting to PDF (`tinytex::install_tinytex()`)
 
 --
@@ -1159,4 +1162,4 @@ class: center, middle
 
 # That's all for today
 
-<iframe src="https://giphy.com/embed/8UF0EXzsc0Ckg" width="700" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<iframe src="https://giphy.com/embed/l0NhZ0aUSE8fXag12" width="1000" height="500" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>

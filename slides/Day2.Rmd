@@ -1,24 +1,32 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-  <head>
-    <title>Hello, R Markdown!</title>
-    <meta charset="utf-8" />
-    <meta name="author" content="  Ulrik Lyngs   Department of Computer Science   University of Oxford" />
-    <meta name="date" content="2019-03-13" />
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link href="libs/remark-css-0.0.1/rutgers-fonts.css" rel="stylesheet" />
-    <link rel="stylesheet" href="libs/lyngs_style.css" type="text/css" />
-    <link rel="stylesheet" href="libs/cols.css" type="text/css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap-grid.min.css" type="text/css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" type="text/css" />
-    <link rel="stylesheet" href="libs/css/academicons.min.css" type="text/css" />
-  </head>
-  <body>
-    <textarea id="source">
-
+---
+title: "Hello, R Markdown!"
+subtitle: "Day 2: Applications"
+author: "<br/> Ulrik Lyngs <br/> Department of Computer Science <br/> University of Oxford"
+date: "13 March 2019"
+output:
+  xaringan::moon_reader:
+    seal: false
+    chakra: libs/remark-latest.min.js
+    lib_dir: libs
+    nature:
+      #highlightStyle: default
+      highlightLines: true
+      countIncrementalSlides: false
+      titleSlideClass: ["middle", "center"]
+      ratio: "16:9"
+      beforeInit: ["https://platform.twitter.com/widgets.js", "libs/cols_macro.js"]
+      navigation:
+        scroll: false # disable slide transitions by scrolling
+    css: ["libs/lyngs_style.css", default, rutgers-fonts, libs/cols.css, "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap-grid.min.css", "https://use.fontawesome.com/releases/v5.7.2/css/all.css", "libs/css/academicons.min.css"]
+---
 class: title-slide
 
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(knitr)
+library(DiagrammeR)
+```
 
 .row[
 .col-7[
@@ -30,11 +38,11 @@ class: title-slide
 ### Project TIER Faculty Development Workshop, 12-13 March 2019
 ]
 .author[
-### Ulrik Lyngs &lt;br&gt; [ulriklyngs.com](https://ulriklyngs.com) &lt;br&gt; [&lt;i class="fab fa-github"&gt;&lt;/i&gt;](https://github.com/ulyngs) [&lt;i class="fab fa-twitter"&gt;&lt;/i&gt;](https://twitter.com/ulyngs)[&lt;i class="ai ai-google-scholar"&gt;&lt;/i&gt;](https://scholar.google.co.uk/citations?user=e8XDAzcAAAAJ&amp;hl=en)
+### Ulrik Lyngs <br> [ulriklyngs.com](https://ulriklyngs.com) <br> [<i class="fab fa-github"></i>](https://github.com/ulyngs) [<i class="fab fa-twitter"></i>](https://twitter.com/ulyngs)[<i class="ai ai-google-scholar"></i>](https://scholar.google.co.uk/citations?user=e8XDAzcAAAAJ&hl=en)
 ]
 
 .affiliation[
-### Department of Computer Science &lt;br&gt; University of Oxford
+### Department of Computer Science <br> University of Oxford
 ]
 
 ]
@@ -42,12 +50,14 @@ class: title-slide
 .col-5[
 
 .logo[
-&lt;img src="figures/rmarkdown.png" width="981" /&gt;
+```{r}
+knitr::include_graphics("figures/rmarkdown.png")
+```
 ]
 
-Slides:&lt;br&gt; [ulyngs.github.io/rmarkdown-workshop-2019](https://ulyngs.github.io/rmarkdown-workshop-2019/)
+Slides:<br> [ulyngs.github.io/rmarkdown-workshop-2019](https://ulyngs.github.io/rmarkdown-workshop-2019/)
 
-Materials:&lt;br&gt; [github.com/ulyngs/rmarkdown-workshop-2019](https://github.com/ulyngs/rmarkdown-workshop-2019)
+Materials:<br> [github.com/ulyngs/rmarkdown-workshop-2019](https://github.com/ulyngs/rmarkdown-workshop-2019)
 
 ]
 
@@ -65,8 +75,8 @@ class: middle, larger-body
 ## Day 1: Fundamentals
 .large[
 - Why R Markdown?
-- Basic syntax: Markdown &amp; code
-- Final pieces: Citations &amp; cross-referencing
+- Basic syntax: Markdown & code
+- Final pieces: Citations & cross-referencing
 ]
 ]
 
@@ -88,8 +98,8 @@ class: middle, larger-body
 ## Day 1: Fundamentals
 .large[
 - Why R Markdown?
-- Basic syntax: Markdown &amp; code
-- Final pieces: Citations &amp; cross-referencing
+- Basic syntax: Markdown & code
+- Final pieces: Citations & cross-referencing
 ]
 ]
 
@@ -97,7 +107,7 @@ class: middle, larger-body
 ## Day 2: Applications
 .large[
 - Customising your output
-- Workflows, collaboration &amp; teaching
+- Workflows, collaboration & teaching
 - Putting it all together
 ]
 ]
@@ -142,7 +152,9 @@ output:
 
 --
 .pull-right[
-&lt;img src="figures/html_toc.png" width="659" /&gt;
+```{r}
+knitr::include_graphics("figures/html_toc.png")
+```
 ]
 
 
@@ -163,7 +175,9 @@ output:
 
 --
 .pull-right[
-&lt;img src="figures/html_toc_float.png" width="972" /&gt;
+```{r}
+include_graphics("figures/html_toc_float.png")
+```
 ]
 
 ---
@@ -182,7 +196,9 @@ output:
 
 --
 .pull-right[
-&lt;img src="figures/pdf_toc.png" width="1127" /&gt;
+```{r}
+include_graphics("figures/pdf_toc.png")
+```
 ]
 
 ---
@@ -201,7 +217,9 @@ output:
 
 --
 .pull-right[
-&lt;img src="figures/word_toc.png" width="2891" /&gt;
+```{r}
+include_graphics("figures/word_toc.png")
+```
 ]
 
 ---
@@ -233,7 +251,9 @@ For example:
 
 --
 .pull-right[
-&lt;img src="figures/html_tabset.png" width="80%" /&gt;
+```{r, out.width="80%"}
+include_graphics("figures/html_tabset.png")
+```
 
 ]
 
@@ -264,7 +284,9 @@ output:
 
 
 .pull-right[
-&lt;img src="figures/html_theme.png" width="75%" /&gt;
+```{r, out.width="75%"}
+include_graphics("figures/html_theme.png")
+```
 
 ]
 
@@ -313,14 +335,18 @@ class: larger-body
 ## What's a LaTeX template anyway?
 
 .pull-left[
-&lt;img src="figures/plos_latex.png" width="2363" /&gt;
+```{r}
+include_graphics("figures/plos_latex.png")
+```
 
 ]
 
 
 --
 .pull-right[
-&lt;img src="figures/template_compiled.png" width="939" /&gt;
+```{r}
+include_graphics("figures/template_compiled.png")
+```
 ]
 
 
@@ -339,7 +365,9 @@ output:
 
 --
 .pull-right[
-&lt;img src="figures/template_error.png" width="519" /&gt;
+```{r}
+include_graphics("figures/template_error.png")
+```
 ]
 
 ---
@@ -355,7 +383,7 @@ class: larger-body
 
 
 --
-- `pandoc` looks for stuff wrapped in dollar signs and assumes it means you want it to plug in content from your **.Rmd** file
+- `pandoc` looks for stuff wrapped in dollar signs and will try to plug in content from your **.Rmd** file
 
 
 --
@@ -375,8 +403,8 @@ this should be formatted as $x^2$
 
 --
 .pull-right[
-- We change to this:&lt;br&gt;
-&lt;br&gt;
+- We change to this:<br>
+<br>
 
 ```latex
 % For example, x$$^2$$ is incorrect; 
@@ -403,7 +431,9 @@ output:
 ---
 ```
 
-&lt;img src="figures/template_escapes.png" width="88%" style="display: block; margin: auto;" /&gt;
+```{r, out.width="88%", fig.align='center'}
+include_graphics("figures/template_escapes.png")
+```
 
 
 ]
@@ -412,7 +442,9 @@ output:
 --
 .pull-right[
 
-&lt;img src="figures/template_compiled.png" width="95%" /&gt;
+```{r, out.width = "95%"}
+include_graphics("figures/template_compiled.png")
+```
 ]
 
 ---
@@ -524,7 +556,9 @@ It was released as a downloadable track for Rock Band in addition to appearing a
 ]
 
 .pull-right[
-&lt;img src="figures/template_plos.png" width="88%" /&gt;
+```{r, out.width="88%"}
+include_graphics("figures/template_plos.png")
+```
 
 ]
 
@@ -562,12 +596,12 @@ Examples: Output customisation ([HTML](examples/output_customisation.html), [Rmd
   
 .col-4.intermediate[
 Have a look at the ['Output formats' section of R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/html-document.html):
-1. Try to output to a HTML document where code is hidden but the user can choose to see it.
-2. Try to output as Word document using a `reference_docx`. Can you succesfully customise the header and body styles?
+1. How do you output to HTML where code is hidden but the user can choose to see it?
+2. Try to use `reference_docx` to output to Word document. Can you succesfully customise the header and body styles in the template?
 ]
 
 .col-4.advanced[
-1. How would you inspect whether R Markdown is doing what you think it does when you're customisting the output?
+1. How would you check if R Markdown is doing what you think it does when you're trying to tweak the output?
 2. Find a LaTeX template for submission to your favorite journal and have a quick stab at getting an **.Rmd** file to use it as a template
 ]
 ]
@@ -586,7 +620,9 @@ class: center, middle, inverse
 ---
 class: middle, center
 
-&lt;img src="figures/workflow_general.png" width="3173" /&gt;
+```{r}
+include_graphics("figures/workflow_general.png")
+```
 
 .footnote.black[
 [r4ds.had.co.nz/explore-intro.html](https://r4ds.had.co.nz/explore-intro.html)
@@ -600,25 +636,25 @@ class: middle, center
 
 ---
 class: middle, larger-body
-&gt; One day you will need to quit R, go do something else and return to your analysis later, perhaps months or years later...&lt;br&gt;
+> One day you will need to quit R, go do something else and return to your analysis later, perhaps months or years later...<br>
 
 
 --
-&gt; One day you will need to hand an analysis over to someone else to critique, extend, or reuse...&lt;br&gt;
+> One day you will need to hand an analysis over to someone else to critique, extend, or reuse...<br>
 
 
 --
-&gt; To handle these real life situations, you need to make two decisions:
+> To handle these real life situations, you need to make two decisions:
 
 --
-&gt; - What about your analysis is "real", i.e. you will save it as your lasting record of what happened?
+> - What about your analysis is "real", i.e. you will save it as your lasting record of what happened?
 
 --
-&gt; - Where does your analysis “live"?
+> - Where does your analysis “live"?
 
 
 --
-&gt; --- [Jenny Bryan, UBC &amp; RStudio](https://www.stat.ubc.ca/~jenny/STAT545A/block01_basicsWorkspaceWorkingDirProject.html)
+> --- [Jenny Bryan, UBC & RStudio](https://www.stat.ubc.ca/~jenny/STAT545A/block01_basicsWorkspaceWorkingDirProject.html)
 
 ---
 class: larger-body
@@ -626,26 +662,23 @@ class: larger-body
 
 - "Interactive" typing of your code
 
-
-```r
-x &lt;- 5
-y &lt;- 10
+```{r, echo = TRUE}
+x <- 5
+y <- 10
 
 x + y
-```
-
-```
-## [1] 15
 ```
 
 
 --
 .pull-left[
-- Saving your code as a script &lt;br&gt; or .Rmd file &lt;-- .color["real"]
+- Saving your code as a script <br> or .Rmd file <-- .color["real"]
 ]
 
 .pull-right[
-&lt;img src="figures/script_is_real.png" width="80%" /&gt;
+```{r, out.width="80%"}
+include_graphics("figures/script_is_real.png")
+```
 ]
 
 
@@ -663,7 +696,8 @@ x + y
 
 
 --
-- Setting your working directory (path): `setwd("me/folder-that-only-exists-on-this-computer")`
+- Setting your working directory (path): `setwd("me/folder-that-only-exists-on-this-computer")`??
+
 
 ---
 class: center, middle, inverse
@@ -687,9 +721,11 @@ class: center, middle, inverse
 
 --
 .pull-right[
-File &gt; New Project...
+File > New Project...
 
-&lt;img src="figures/projects1.png" width="100%" style="display: block; margin: auto;" /&gt;
+```{r, out.width="100%", fig.align='center'}
+include_graphics("figures/projects1.png")
+```
 ]
 
 ???
@@ -698,7 +734,9 @@ File &gt; New Project...
 ---
 ## Naming and organising things
 
-&lt;img src="figures/naming_things.png" width="60%" style="display: block; margin: auto;" /&gt;
+```{r, out.width="60%", fig.align='center'}
+include_graphics("figures/naming_things.png")
+```
 
 .footnote[
 https://speakerdeck.com/jennybc/how-to-name-files
@@ -707,7 +745,9 @@ https://speakerdeck.com/jennybc/how-to-name-files
 ---
 class: middle, center
 
-&lt;img src="figures/workflow_general.png" width="3173" /&gt;
+```{r}
+include_graphics("figures/workflow_general.png")
+```
 
 
 --
@@ -766,7 +806,9 @@ class: center, middle, inverse
 ## What do ideal collaboration workflows look like?
 
 --
-&lt;img src="figures/final_final.jpg" style="display: block; margin: auto;" /&gt;
+```{r, fig.align='center'}
+include_graphics("figures/final_final.jpg")
+```
 
 ---
 class: larger-body
@@ -782,7 +824,9 @@ class: larger-body
 
 ---
 
-&lt;img src="figures/version_control.png" width="1707" /&gt;
+```{r}
+include_graphics("figures/version_control.png")
+```
 
 ???
 credit: https://github.com/will-r-chase/blog/blob/master/static/slides/intro_R_anthropology_2018.Rmd
@@ -791,7 +835,9 @@ credit: https://github.com/will-r-chase/blog/blob/master/static/slides/intro_R_a
 .pull-left[
 ## GitHub
 
-&lt;img src="figures/git_version_control.png" width="1332" /&gt;
+```{r}
+include_graphics("figures/git_version_control.png")
+```
 
 
 ]
@@ -800,7 +846,10 @@ credit: https://github.com/will-r-chase/blog/blob/master/static/slides/intro_R_a
 --
 .pull-right[
 ## Open Science Framework
-&lt;img src="figures/osf_version_control.png" width="1588" /&gt;&lt;img src="figures/osf_checkout.png" width="3443" /&gt;
+```{r}
+include_graphics("figures/osf_version_control.png")
+include_graphics("figures/osf_checkout.png")
+```
 ]
 
 
@@ -835,13 +884,15 @@ class: very-large-body
 ## Simultaneous editing?
 
 --
-1. Don't.
+Option 1: Don't.
+
 
 --
-2. Knit to Word document &gt; upload to Google Docs &gt; comment and suggest edits there &gt; manually integrate changes into .Rmd source file&lt;sup&gt;1&lt;/sup&gt;
+Option 2: Knit to Word document > upload to Google Docs > comment and suggest edits there > manually integrate changes into .Rmd source file<sup>1</sup>
+
 
 --
-3. Edit raw R Markdown on Google Docs
+Option 3: Edit raw R Markdown on Google Docs
 
 .footnote[
 [1] Great blog post here: https://livefreeordichotomize.com/2018/09/14/one-year-to-dissertate/
@@ -856,7 +907,7 @@ class: inverse, middle
   ]
 
 .col-6[
-&lt;blockquote class="twitter-tweet" data-lang="en-gb"&gt;&lt;p lang="en" dir="ltr"&gt;Quick demo of the rmdrive 📦workflow - create rmarkdown document in R, add text on google docs, resync to local rmd, knit. &lt;a href="https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#rstats&lt;/a&gt; &lt;a href="https://t.co/h09TI8q4w0"&gt;pic.twitter.com/h09TI8q4w0&lt;/a&gt;&lt;/p&gt;&amp;mdash; Dr Emily Kothe (@emilyandthelime) &lt;a href="https://twitter.com/emilyandthelime/status/1102015059486621697?ref_src=twsrc%5Etfw"&gt;3 March 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+<blockquote class="twitter-tweet" data-lang="en-gb"><p lang="en" dir="ltr">Quick demo of the rmdrive 📦workflow - create rmarkdown document in R, add text on google docs, resync to local rmd, knit. <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://t.co/h09TI8q4w0">pic.twitter.com/h09TI8q4w0</a></p>&mdash; Dr Emily Kothe (@emilyandthelime) <a href="https://twitter.com/emilyandthelime/status/1102015059486621697?ref_src=twsrc%5Etfw">3 March 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 ]
 
   .col-3[
@@ -879,13 +930,13 @@ class: larger-body
 ### Assignment submissions with R Markdown 
 
 --
-&gt; For teaching statistics, I ask students to submit R Markdown files and a knitted version with echo = TRUE as a global option. &lt;br&gt;
+> For teaching statistics, I ask students to submit R Markdown files and a knitted version with echo = TRUE as a global option. <br>
 
 --
-&gt; This has made grading assignments so much easier, and the students can work in one document to analyze AND interpret data (rather than working in R console, and copying/pasting R code and output into a text editor or Word document, then adding narrative).
+> This has made grading assignments so much easier, and the students can work in one document to analyze AND interpret data (rather than working in R console, and copying/pasting R code and output into a text editor or Word document, then adding narrative).
 
 
-&gt; [Alison Presmanes Hill](Alison Presmanes Hill on the RStudio Community
+> [Alison Presmanes Hill](Alison Presmanes Hill on the RStudio Community
 https://community.rstudio.com/t/convince-me-to-start-using-r-markdown/1636/6) 
 
 
@@ -940,20 +991,27 @@ class: larger-body
 .row[
 
 .col-4.beginner[
-1. Make a report from scratch, using the **my-example-document** (this one will have the data computed in there)
-- give it your name, today's date, report the main results, cite something, make a cross reference - output to `bookdown::pdf_document2` and `bookdown::html_document2`
+.color[
+Make a report from scratch, using the **my-example-document** (this one will have the data computed in there)
+]
+
+<br>
+
+Give it your name, today's date, report the main results, cite something, make a cross reference - output to `bookdown::pdf_document2` and `bookdown::html_document2`
 ]
   
 .col-4.intermediate[
-1. Make your own template for a teaching situation relevan to your
-2. Figure out how the Open Science Framework R interface works, and suggest how it might be used in teaching
+11. .color[ake an your own template for a teaching situation relevan to your]
+
+
+2.Look into RStudio Connect and suggest how it might be used in your teaching
 
 ]
 
 .col-4.advanced[
 1. Make a start on adjusting your favorite journal's LaTeX template for use with R Markdown
-2. Make a fictive report (e.g. about the `diamonds` dataset from the `tidyverse` package and use parameters to make reports for each class of diamonds
-3. Look into RStudio Connect and suggest how it might be used in your teaching
+2. Figure out how the [Open Science Framework R package works](https://centerforopenscience.github.io/osfr/), and suggest how it might be useful
+
 ]
 ]
 
@@ -968,11 +1026,11 @@ class: larger-body
 - [R for Data Science: R Markdown](https://r4ds.had.co.nz/r-markdown.html)
 - [RStudio website: R Markdown](https://rmarkdown.rstudio.com/index.html)
 - [Getting used to R, RStudio, and R Markdown](https://ismayc.github.io/rbasics-book/4-rmarkdown.html)
-- Cheat sheets and Reference: In RStudio, go to Help &gt; Cheatsheets &gt; R Markdown Cheat Sheet / R Markdown Reference Guide
+- Cheat sheets and Reference: In RStudio, go to Help > Cheatsheets > R Markdown Cheat Sheet / R Markdown Reference Guide
 ]
 
 .pull-right[
-**Workflows** &lt;br&gt;
+**Workflows** <br>
 R markdown from start to finish example: [github.com/EvaMaeRey/from_raw_data_to_paper_and_presentation](https://github.com/EvaMaeRey/from_raw_data_to_paper_and_presentation)
 
 **Learning GitHub**
@@ -988,103 +1046,7 @@ R markdown from start to finish example: [github.com/EvaMaeRey/from_raw_data_to_
 ---
 class: center, middle
 
-&lt;iframe src="https://giphy.com/embed/l0NhZ0aUSE8fXag12" width="1000" height="500" frameBorder="0" class="giphy-embed" allowFullScreen&gt;&lt;/iframe&gt;
+<iframe src="https://giphy.com/embed/8UF0EXzsc0Ckg" width="700" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
 ???
 - So this was an awful lot of content - hopefully it will be useful no matter what prior level you were at
-    </textarea>
-<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
-<script src="libs/remark-latest.min.js"></script>
-<script src="https://platform.twitter.com/widgets.js"></script>
-<script src="libs/cols_macro.js"></script>
-<script>var slideshow = remark.create({
-"highlightLines": true,
-"countIncrementalSlides": false,
-"ratio": "16:9",
-"navigation": {
-"scroll": false
-}
-});
-if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
-  window.dispatchEvent(new Event('resize'));
-});
-(function(d) {
-  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
-  if (!r) return;
-  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
-  d.head.appendChild(s);
-})(document);
-
-(function(d) {
-  var el = d.getElementsByClassName("remark-slides-area");
-  if (!el) return;
-  var slide, slides = slideshow.getSlides(), els = el[0].children;
-  for (var i = 1; i < slides.length; i++) {
-    slide = slides[i];
-    if (slide.properties.continued === "true" || slide.properties.count === "false") {
-      els[i - 1].className += ' has-continuation';
-    }
-  }
-  var s = d.createElement("style");
-  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
-  d.head.appendChild(s);
-})(document);
-// delete the temporary CSS (for displaying all slides initially) when the user
-// starts to view slides
-(function() {
-  var deleted = false;
-  slideshow.on('beforeShowSlide', function(slide) {
-    if (deleted) return;
-    var sheets = document.styleSheets, node;
-    for (var i = 0; i < sheets.length; i++) {
-      node = sheets[i].ownerNode;
-      if (node.dataset["target"] !== "print-only") continue;
-      node.parentNode.removeChild(node);
-    }
-    deleted = true;
-  });
-})();</script>
-
-<script>
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
-</script>
-
-<script>
-slideshow._releaseMath = function(el) {
-  var i, text, code, codes = el.getElementsByTagName('code');
-  for (i = 0; i < codes.length;) {
-    code = codes[i];
-    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
-      text = code.textContent;
-      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
-          /^\$\$(.|\s)+\$\$$/.test(text) ||
-          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
-        code.outerHTML = code.innerHTML;  // remove <code></code>
-        continue;
-      }
-    }
-    i++;
-  }
-};
-slideshow._releaseMath(document);
-</script>
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-(function () {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
-  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
-    script.src  = script.src.replace(/^https?:/, '');
-  document.getElementsByTagName('head')[0].appendChild(script);
-})();
-</script>
-  </body>
-</html>

@@ -15,5 +15,5 @@ This repo contains slides and teaching materials for a two day R Markdown worksh
 
 Slides are available here:
 
-- [Day 1: Introduction to R Markdown](Day1.html)
-- [Day 2: Applications of R Markdown](Day2.html)
+- [Day 1: Introduction to R Markdown](slides/Day1.html)
+- [Day 2: Applications of R Markdown](slides/Day2.html)
