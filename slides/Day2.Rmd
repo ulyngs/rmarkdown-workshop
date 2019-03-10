@@ -1194,7 +1194,11 @@ R markdown from start to finish example: [github.com/EvaMaeRey/from_raw_data_to_
 ---
 class: center, middle
 
-<iframe src="https://giphy.com/embed/8UF0EXzsc0Ckg" width="700" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<iframe src="https://giphy.com/embed/8UF0EXzsc0Ckg" height="450" width="700" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+<br>
+
+Questions or comments: [ulrik.lyngs@cs.ox.ac.uk](mailto:ulrik.lyngs@cs.ox.ac.uk)
 
 ???
-- So this was an awful lot of content - hopefully it will be useful no matter what prior level you were at
+So this was an awful lot of content - hopefully it will be useful no matter what prior level you were at
