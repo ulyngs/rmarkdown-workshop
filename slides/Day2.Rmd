@@ -1107,6 +1107,10 @@ class: larger-body
 --
 - Teacher decides libraries to be installed in the virtual environment
 
+
+--
+- Video presentation here on best practices for using it in educational setting: https://resources.rstudio.com/rstudio-conf-2019/rstudio-cloud-for-education
+
 ---
 class: larger-body
 # Suggestions from the R community
