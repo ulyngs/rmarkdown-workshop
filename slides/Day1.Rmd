@@ -65,7 +65,8 @@ Materials:<br> [github.com/ulyngs/rmarkdown-workshop-2019](https://github.com/ul
 ]
 
 ???
-- welcome, before I say more, let's see a clip from my favorite scary movie
+- welcome, hope you all got the email with links to the materials and things to install and so on
+- before I say more, let's see a clip from my favorite scary movie
 
 ---
 <iframe width="1300" height="600" src="https://www.youtube.com/embed/s3JldKoA0zw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -615,6 +616,10 @@ Skim through the references available from within RStudio:
 
 ]
 
+---
+class: center, middle, inverse
+
+![](figures/googling.jpg)
 
 ---
 class: center, middle
