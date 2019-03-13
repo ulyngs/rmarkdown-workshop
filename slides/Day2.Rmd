@@ -715,7 +715,10 @@ class: practice-slide, larger-body
 
 .center[
 # Time for practice!
-Examples: Output customisation ( [Rmd](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/output_customisation.Rmd), [HTML](../examples/output_customisation.html)) ; Using LaTeX templates ([Rmd](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/using_latex_templates.Rmd), [HTML](../examples/using_latex_templates.html))
+See 
+`examples/output_customisation.Rmd` (GitHub: [Rmd](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/output_customisation.Rmd), [HTML](../examples/output_customisation.html))) 
+and 
+`examples/using_latex_templates.Rmd` (GitHub: [Rmd](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/using_latex_templates.Rmd), [HTML](../examples/using_latex_templates.html))
 ]
 
 .row[
@@ -1038,19 +1041,18 @@ Option 1: Don't.
 --
 Option 2: Knit to Word > upload to Google Docs > comment and suggest edits there > manually integrate changes into .Rmd source file<sup>1</sup>
 
+.footnote[
+[1] Great blog post here: https://livefreeordichotomize.com/2018/09/14/one-year-to-dissertate/
+]
+
 
 --
-Option 3: Knit to PDF with `keep_tex: true` > upload to Overleaf > comment and suggest edits in **.tex** file > manually integrate changes into .Rmd source file
+Option 3: Knit to PDF with `keep_tex: true` > upload project folder to Overleaf > comment and suggest edits in **.tex** file > manually integrate changes into .Rmd source file
 
 
 --
 Option 4: Edit raw R Markdown on Google Docs
 
-
---
-.footnote[
-[1] Great blog post here: https://livefreeordichotomize.com/2018/09/14/one-year-to-dissertate/
-]
 
 ---
 class: inverse, middle
@@ -1174,25 +1176,28 @@ class: larger-body
 
 .pull-left[
 ### R Markdown
-- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
-- [R for Data Science: R Markdown](https://r4ds.had.co.nz/r-markdown.html)
-- [RStudio website: R Markdown](https://rmarkdown.rstudio.com/index.html)
-- [Getting used to R, RStudio, and R Markdown](https://ismayc.github.io/rbasics-book/4-rmarkdown.html)
-- Cheat sheets and Reference: In RStudio, go to Help > Cheatsheets > R Markdown Cheat Sheet / R Markdown Reference Guide
+[R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+
+[`bookdown`: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown/)
+
+[R for Data Science: R Markdown](https://r4ds.had.co.nz/r-markdown.html)
+
+[Retting used to R, RStudio, and R Markdown](https://ismayc.github.io/rbasics-book/4-rmarkdown.html)
+
+Cheat sheets and Reference: In RStudio, go to
+- Help > Cheatsheets > R Markdown Cheat Sheet / R Markdown Reference Guide
+
+If you're fearless: [Advanced R Markdown: Behind the Knit Button](https://slides.yihui.name/2017-rstudio-conf-rmarkdown-Yihui-Xie.html)
 ]
 
 .pull-right[
 **Workflows** <br>
-R markdown from start to finish example: [github.com/EvaMaeRey/from_raw_data_to_paper_and_presentation](https://github.com/EvaMaeRey/from_raw_data_to_paper_and_presentation)
+Example of R markdown workflow from start to finish: [github.com/EvaMaeRey/from_raw_data_to_paper_and_presentation](https://github.com/EvaMaeRey/from_raw_data_to_paper_and_presentation)
 
 **Learning GitHub**
 1. Hadley Wickham's guide: [r-pkgs.had.co.nz/git.html](http://r-pkgs.had.co.nz/git.html)
 2. Jenny Bryan's guide: [happygitwithr.com](https://happygitwithr.com)
-
-**Working with Word and Powerpoint**
-- The [`officer`](https://davidgohel.github.io/officer/) package - read **.docx** and **.pptx** files into R as R objects, manipulate them, and save modified version
 ]
-
 
 
 ---

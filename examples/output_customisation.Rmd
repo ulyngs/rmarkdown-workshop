@@ -3,8 +3,6 @@ title: "Output customisation"
 output: 
   bookdown::html_document2:
     toc: true
-    #toc_float: true
-    #theme: darkly
   bookdown::word_document2:
     toc: true
   bookdown::pdf_document2:
