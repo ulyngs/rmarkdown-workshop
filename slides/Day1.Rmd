@@ -1082,8 +1082,8 @@ knitr::include_graphics("figures/captain.jpeg")
 
 --
 .pull-right[
-- To refer to figures (plots and images) use the syntax `\@ref(fig:label)`<sup>1</sup>
-- So we'd refer to this image with `\@ref(fig:captain)`
+- To refer to figures (plots and images) use the syntax `\@ref(fig:label)`
+- So we'd refer to this image with `\@ref(fig:captain)`<sup>1</sup>
 - Again, examples here: [Rmd](https://github.com/ulyngs/rmarkdown-workshop-2019/blob/master/examples/cross_referencing.Rmd), [HTML](../examples/cross_referencing.html)
 ]
 
