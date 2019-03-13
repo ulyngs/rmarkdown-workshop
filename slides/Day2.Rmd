@@ -882,6 +882,31 @@ include_graphics("figures/projects1.png")
 ???
 - do a quick demo
 
+
+---
+# Bonus tip: Global and Project options
+It's a good idea to stop RStudio from saving and restoring your workspace state. <br>
+Set this in Tools > Global Options...      ||       Tools > Project Options...
+
+
+--
+.pull-left[
+
+```{r, out.width="80%"}
+include_graphics("figures/bad.png")
+```
+## Bad (but default!!)
+]
+
+
+--
+.pull-right[
+```{r, out.width="80%"}
+include_graphics("figures/good.png")
+```
+## Good
+]
+
 ---
 ## Naming and organising things
 
