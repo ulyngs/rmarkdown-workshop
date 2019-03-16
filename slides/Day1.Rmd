@@ -698,7 +698,7 @@ cars %>%
 ]
 
 .pull-right[
-```{r, out.width="90%", fig.align='center'}
+```{r, out.width="90%", fig.align='center', fig.retina = 3}
 cars %>% 
   ggplot() +
     aes(x = speed, y = dist) +
