@@ -1044,7 +1044,7 @@ class: larger-body
 - The cross-reference syntax is `\@ref(label)` 
 
 --
-  - So `# My header` can be referenced with `\@ref(my-section)`
+  - So `# My header` can be referenced with `\@ref(my-header)`
   
 --
   - .Rmd: `See section \@ref(my-header)` -> output: 'See section 1'

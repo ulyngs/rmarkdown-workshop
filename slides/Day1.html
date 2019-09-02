@@ -51,7 +51,7 @@ class: title-slide
 .col-5[
 
 .logo[
-&lt;img src="figures/rmarkdown.png" width="981" /&gt;
+![](figures/rmarkdown.png)&lt;!-- --&gt;
 ]
 
 Slides:&lt;br&gt; [ulyngs.github.io/rmarkdown-workshop-2019](https://ulyngs.github.io/rmarkdown-workshop-2019/)
@@ -175,7 +175,7 @@ class: very-large-body
 ]
 
 .pull-right[
-&lt;img src="figures/plain-text.png" width="1352" /&gt;
+![](figures/plain-text.png)&lt;!-- --&gt;
 *Plain text*
 ]
 
@@ -193,7 +193,7 @@ class: very-large-body
 ]
 
 .pull-right[
-&lt;img src="figures/latex.png" width="775" /&gt;
+![](figures/latex.png)&lt;!-- --&gt;
 
 ]
 
@@ -208,7 +208,7 @@ class: very-large-body
 ]
 
 .pull-right[
-&lt;img src="figures/cropped.png" width="1373" /&gt;
+![](figures/cropped.png)&lt;!-- --&gt;
 
 *Markdown*
 ]
@@ -354,7 +354,7 @@ smaller &lt;- diamonds %&gt;%
 
 *# Shine bright like a diamond
 *We have data about `r nrow(diamonds)` diamonds.
-*Only `r nrow(diamonds) - nrow(smaller)` are larger than 2.5 carats. 
+*Only `r nrow(diamonds) - nrow(smaller)` are larger than 2.5 carats.
 *The distribution of the remainder is shown below:
 
 ```{r}
@@ -1057,7 +1057,7 @@ class: larger-body
 - The cross-reference syntax is `\@ref(label)` 
 
 --
-  - So `# My header` can be referenced with `\@ref(my-section)`
+  - So `# My header` can be referenced with `\@ref(my-header)`
   
 --
   - .Rmd: `See section \@ref(my-header)` -&gt; output: 'See section 1'
