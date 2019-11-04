@@ -28,6 +28,7 @@ knitr::opts_chunk$set(echo = FALSE, fig.path = "figures/")
 library(tidyverse)
 library(magick)
 library(reticulate)
+#use_python("/Users/ulyngs/opt/anaconda3/bin/python")
 xfun::pkg_load2(c('base64enc', 'htmltools', 'mime'))
 ```
 
@@ -882,7 +883,7 @@ class: larger-body
 
 --
 <ol>
-<li> Put references in a plain text file with the extension **.bib**, in **BibTex** format (most reference managers can do this - [Zotero](https://www.zotero.org) works best, I use [Mendeley](https://www.mendeley.com)).<sup>1</sup>
+<li> Put references in a plain text file with the extension **.bib**, in **BibTex** format (most reference managers can do this - [Zotero](https://www.zotero.org) works best).<sup>1</sup>
 <br>In the highlighed section, 'Shea2014' is the **citation identifier**.
 </ol>
 ```bibtex
