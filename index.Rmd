@@ -5,8 +5,6 @@ author: Ulrik Lyngs
 output: 
   html_document:
     theme: yeti
-    includes:
-       in_header: GA_Script.html
 ---
 
 ```{r setup, include=FALSE}
